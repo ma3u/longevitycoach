@@ -1,0 +1,32 @@
+# Default owners for everything in the repo
+* @ma3u
+
+# Documentation
+/docs/ @ma3u @documentation-team
+
+# Frontend code
+/frontend/ @ma3u @frontend-team
+
+# Backend code
+/backend/ @ma3u @backend-team
+
+# Infrastructure
+/.github/ @ma3u @devops-team
+/infrastructure/ @devops-team
+
+# Configuration files
+/.github/ @ma3u @devops-team
+*.yaml @ma3u @devops-team
+*.yml @ma3u @devops-team
+*.json @ma3u @devops-team
+
+# Tests
+/tests/ @ma3u @qa-team
+*.test.* @ma3u @qa-team
+*_test.* @ma3u @qa-team
+
+# Documentation
+*.md @ma3u @documentation-team
+
+# Memory bank
+/memory-bank/ @ma3u @documentation-team

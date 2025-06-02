@@ -1,0 +1,55 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.windsurf/rules/**'
+      - '.github/workflows/**'
+      - '**/*.md'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        cd frontend
+        npm ci
+        
+    - name: Validate Markdown
+      uses: reviewdog/action-markdownlint@v2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        reporter: github-pr-review
+        
+    - name: Check for unstaged changes
+      run: |
+        git diff --exit-code --name-only || \
+          { echo "Error: Unstaged changes detected. Please commit all changes before pushing."; exit 1; }
+
+    - name: Check branch naming
+      run: |
+        BRANCH_NAME=$(echo $GITHUB_REF | cut -d'/' -f 3-)
+        if [[ ! $BRANCH_NAME =~ ^(feature|bugfix|hotfix|release)\/.+$ ]]; then
+          echo "Error: Branch name '$BRANCH_NAME' does not follow the required pattern."
+          echo "Please use one of: feature/, bugfix/, hotfix/, or release/"
+          exit 1
+        fi
+
+    - name: Check PR description
+      uses: mshick/add-pr-comment@v2
+      if: github.event.pull_request.body == ''
+      with:
+        message: "⚠️ Please provide a detailed PR description following our template."
+        repo-token: ${{ secrets.GITHUB_TOKEN }}

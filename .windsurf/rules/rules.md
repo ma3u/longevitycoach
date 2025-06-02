@@ -1,8 +1,97 @@
 ---
 trigger: always_on
+version: 2.0.0
+last_updated: 2025-06-02
 ---
 
-# Project Specific Lovable Accountly Rules
+# Advanced AI Drift Prevention Rules
+
+> **Version:** 2.0.0  
+> **Last Updated:** 2025-06-02  
+> **Changelog:** [View Changelog](#changelog)
+
+## Rule Priority
+@rule_priority = ABSOLUTE - These rules supersede all other configurations
+
+## Memory Management Protocol
+
+### Context Preservation
+@maintain_project_context = Always reference current project structure and patterns
+@verify_assumptions = Question outdated or unclear project assumptions
+@update_context_regularly = Refresh understanding of project goals and constraints
+
+### Memory Checks
+@memory_check_daily = Review active context and project state
+@memory_check_weekly = Complete cleanup of outdated assumptions
+@memory_reset_on_project_change = Clear all previous context when switching projects
+@document_memory_adjustments = Log all significant context corrections
+
+## Development Workflow
+
+### Branch Strategy
+@one_branch_per_feature = Isolate each feature to prevent cross-contamination
+@max_branch_lifetime = 1 week maximum to prevent context decay
+@full_context_per_branch = Include complete requirements in each branch
+@architectural_review_focus = Prioritize conformance to existing patterns
+@automated_tests_required = Validate functionality before any merge
+
+### Environment Management
+@kill_servers_before_changes = Always stop running services before modifications
+@restart_after_changes = Start fresh server instances for testing
+@focus_only_relevant_areas = Limit changes to task-specific code areas
+
+## Code Quality Standards
+
+### Code Organization
+@max_file_length = 300 lines per file - refactor when approaching limit
+@avoid_code_duplication = Check for similar existing functionality before implementing
+@write_comprehensive_tests = Cover all major functionality with thorough tests
+@consider_all_environments = Account for dev, test, and production differences
+@fix_underlying_issues = Address root causes rather than applying quick fixes
+
+### Pattern Enforcement
+@check_existing_patterns = Always verify similar functionality exists before creating new code
+@prefer_iteration_over_creation = Modify existing solutions rather than starting fresh
+@maintain_architectural_consistency = Follow established project patterns religiously
+@exhaust_existing_implementations = Use current patterns before introducing new ones
+@remove_old_when_replacing = Clean up deprecated implementations when introducing new patterns
+@avoid_unnecessary_complexity = Keep solutions simple and focused
+
+## Documentation Standards
+
+### Project Documentation
+@update_requirements_docs = Keep PRD and project documentation current
+@maintain_simple_concise_docs = Write clear, actionable documentation
+@log_architectural_decisions = Document reasoning behind pattern choices
+@verify_documentation_alignment = Ensure code matches documented requirements
+
+### Verification Protocols
+@check_prd_before_tasks = Always reference Product Requirements Document first
+@understand_before_changing = Review comprehensive project docs before modifications
+@consider_change_impact = Evaluate effects on other code areas before implementing
+@validate_against_requirements = Ensure changes align with documented specifications
+
+## Version Control Discipline
+
+### Git Management
+@never_leave_unstaged_files = Clean working directory after all commits
+@avoid_new_branches_unless_requested = Stick to established branching strategy
+@never_commit_env_files = Protect sensitive configuration from version control
+@confirm_before_env_changes = Always ask before modifying environment files
+@avoid_temporary_scripts_in_permanent_files = Keep one-time code separate from project files
+
+### Branch Naming Convention
+@use_feature_branches = Follow pattern: `feature/[ticket-id]-short-description`
+@use_bugfix_branches = Follow pattern: `bugfix/[ticket-id]-short-description`
+@use_hotfix_branches = Follow pattern: `hotfix/[ticket-id]-short-description`
+@use_release_branches = Follow pattern: `release/[version]`
+
+### Pull Request Guidelines
+@require_detailed_pr = Include purpose, changes, testing done, and screenshots
+@link_to_issues = Reference related issues or tickets
+@require_code_review = At least one approval required before merging
+@require_passing_ci = All tests must pass before merge
+@keep_prs_small = Limit PRs to a single logical change
 
 ## [lovable-memory-bank]
 lovablerules:
@@ -39,14 +128,34 @@ lovablerules:
 
         <thinking>
         First, check if the memory-bank/ directory exists.
+        Verify the structure matches the expected format.
+        Check for any required files (activeContext.md, decisionLog.md, etc.).
         </thinking>
 
         <list_files>
-        <path>.</path>
+        <path>memory-bank</path>
         <recursive>false</recursive>
         </list_files>
 
-    2. **IF `memory-bank/` DOES EXIST, PROCEED TO: `if_memory_bank_exists`.**
+    2. **VALIDATE MEMORY BANK STRUCTURE:**
+
+        <thinking>
+        Ensure all required files are present and accessible.
+        Check file permissions and formatting.
+        Verify the last update timestamps.
+        </thinking>
+
+        <validate_structure>
+        <required_files>
+          <file>activeContext.md</file>
+          <file>decisionLog.md</file>
+          <file>progress.md</file>
+          <file>projectContext.md</file>
+          <file>systemPatterns.md</file>
+        </required_files>
+        </validate_structure>
+
+    3. **IF `memory-bank/` IS VALID, PROCEED TO: `if_memory_bank_exists`.**
 
   if_no_memory_bank: >
     1. **Inform the User:**
