@@ -237,64 +237,113 @@ lovablerules:
             g. Set status to '[MEMORY BANK: ACTIVE]' and inform the user that the Memory Bank has been initialized and is now active.
 
   initial_content:
-    README.md: >
-      # Memory Bank
+    README.md: |
+      # Longevity Coach Memory Bank
 
-      Central repository for project knowledge, decisions, and patterns.
+      Central knowledge repository for the Longevity-Focused Blood Analysis Platform, integrating expert methodologies with modern MCP architecture.
+
+      ## 🏗️ Project Structure
+
+      ### Core Directories
+      - `architecture/` - System design and technical specifications
+      - `decisions/` - Architectural Decision Records (ADRs)
+      - `checkpoints/` - Versioned project states
+      - `domain-knowledge/` - Healthcare expertise and guidelines
+      - `project-phases/` - Implementation roadmap
+
+      ## 🚀 Getting Started
+
+      ### For Developers
+      1. Review current phase in `project-phases/`
+      2. Check `checkpoints/` for latest state
+      3. Document decisions in `decisions/`
+      4. Follow patterns in `architecture/`
+
+      ### For Medical Experts
+      1. Review `domain-knowledge/`
+      2. Validate clinical guidelines
+      3. Update protocols as needed
+
+      ## 🔗 Related Resources
+      - [Decision Log](./decision-log.md)
+      - [Project Vision](./project-vision.md)
+      - [Development Checklist](./checkpoints/checklist.md)
+
+    decisions/README.md: |
+      # Architectural Decision Records (ADRs)
+
+      This directory follows the Architecture Decision Record (ADR) pattern for documenting significant architectural decisions.
 
       ## Structure
-      - `decisions/`: Architectural Decision Records (ADRs)
-      - `checkpoints/`: Versioned project states
-      - `domain-knowledge/`: Healthcare regulations and guidelines
-      - `development-phases/`: Project roadmap and milestones
-      - `systemPatterns.md`: Architectural patterns and standards
+      Each ADR follows this naming convention: `[TYPE]-[NUMBER]-[SHORT-TITLE].md`
+      
+      Example: `ARCH-001-mcp-architecture.md`
 
-    decisions/README.md: >
-      # Architectural Decisions
+      ## Templates
+      - [ADR Template](./templates/decision-template.md)
+      - [Lightweight ADR](./templates/lightweight-decision.md)
 
-      This directory follows the Architecture Decision Record (ADR) pattern.
+      ## Index
+      See [Decision Log](../decision-log.md) for a complete index of all decisions.
 
-      ## Adding a New Decision
-      1. Create a new markdown file: `YYYYMMDD-short-title.md`
-      2. Use the ADR template
-      3. Reference related issues/PRs
+    architecture/README.md: |
+      # System Architecture
 
-    checkpoints/README.md: >
-      # Development Checkpoints
+      ## Components
+      - [API Design](./api-architecture.md)
+      - [Database Schema](./database-architecture.md)
+      - [Security Model](./security-architecture.md)
 
-      Versioned snapshots of project state at key milestones.
+      ## Guidelines
+      - Follow FHIR R4 standards for healthcare data
+      - Implement HIPAA security controls
+      - Document all architectural decisions
 
-      ## Creating a Checkpoint
-      1. Document current state
-      2. Include rollback instructions
-      3. Reference related decisions
-
-    domain-knowledge/README.md: >
+    domain-knowledge/README.md: |
       # Healthcare Domain Knowledge
 
-      Central repository for healthcare-specific information.
-      
       ## Structure
-      - `regulations/`: Compliance requirements
-      - `clinical-guidelines/`: Medical best practices
-      - `terminology/`: Medical vocabularies
-      - `workflows/`: Clinical processes
+      - `clinical-guidelines/` - Medical protocols and best practices
+      - `regulations/` - Compliance requirements (HIPAA, GDPR)
+      - `workflows/` - Clinical and operational processes
 
-    development-phases/README.md: >
-      # Development Phases
+      ## Templates
+      - [Biomarker Protocol](./templates/biomarker-protocol.md)
+      - [Clinical Guideline](./templates/clinical-guideline.md)
 
-      Tracks project progress and upcoming work.
-      
+    project-phases/README.md: |
+      # Project Phases
+
       ## Current Phase
-      - Phase 1: Foundation
-      - Focus: Core infrastructure
-      - Target: [Date]
+      - **Phase 1**: MVP Frontend Development (Weeks 1-4)
+      - **Focus**: Core MCP agents and UI
+      - **Target Completion**: [Date]
 
       ## Upcoming Phases
-      1. Phase 2: Core Features
-      2. Phase 3: Advanced Features
-      3. Phase 4: Compliance & Security
-      4. Phase 5: Optimization & Scale
+      1. **Phase 2**: Infrastructure & Compliance (Weeks 5-8)
+      2. **Phase 3**: Healthcare Standards (Weeks 9-12)
+      3. **Phase 4**: Analytics Engine (Weeks 13-16)
+      4. **Phase 5**: Integration & Testing (Weeks 17-20)
+
+      ## Progress Tracking
+      - [Phase 1 Checklist](./phase-1/checklist.md)
+      - [Overall Progress](../checkpoints/checklist.md)
+
+    decision-log.md: |
+      # Decision Log
+
+      ## Active Decisions
+      | ID | Title | Date | Status |
+      |----|-------|------|--------|
+      | [ARCH-001](./decisions/ARCH-001-mcp-architecture.md) | MCP Architecture | 2025-06-02 | ✅ Accepted |
+      | [DB-001](./decisions/DB-001-timescaledb-selection.md) | TimescaleDB Selection | 2025-06-02 | ✅ Accepted |
+
+      ## How to Add a Decision
+      1. Create a new ADR in `decisions/`
+      2. Update this log with a reference
+      3. Submit a PR for review
+
+      *Last Updated: 2025-06-02*
 
       ## Key Features
 
