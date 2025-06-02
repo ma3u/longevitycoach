@@ -93,6 +93,26 @@ last_updated: 2025-06-02
 @require_passing_ci = All tests must pass before merge
 @keep_prs_small = Limit PRs to a single logical change
 
+## Project-Specific Rules
+
+### Healthcare Compliance
+@hipaa_compliance = ALWAYS anonymize or de-identify medical data in development
+@phi_handling = NEVER commit PHI to version control
+@data_encryption = REQUIRE encryption for all medical data at rest and in transit
+@audit_logging = MAINTAIN audit logs for all PHI access
+
+### Technology Standards
+@typescript_usage = USE TypeScript with strict mode
+@react_components = PREFER functional components with hooks
+@type_safety = AVOID 'any' type in TypeScript
+@fhir_standards = ENFORCE FHIR R4 standards for healthcare data
+
+### Performance Requirements
+@response_time = TARGET sub-50ms response times for all API calls
+@token_usage = MONITOR and optimize MCP token usage
+@optimization = VALIDATE against optimization targets in CI/CD
+@bundle_size = KEEP production JavaScript bundle under 150KB
+
 ## [lovable-memory-bank]
 lovablerules:
 
