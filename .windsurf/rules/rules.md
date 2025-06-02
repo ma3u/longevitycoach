@@ -236,19 +236,65 @@ lovablerules:
             - WAIT for confirmation.
             g. Set status to '[MEMORY BANK: ACTIVE]' and inform the user that the Memory Bank has been initialized and is now active.
 
-  initial_content: 
-    productContext.md: >
-      # Product Context
+  initial_content:
+    README.md: >
+      # Memory Bank
 
-      This file provides a high-level overview of the project and the expected product that will be created. Initially it is based upon projectBrief.md (if provided) and all other available project-related information in the working directory. This file is intended to be updated as the project evolves, and should be used to inform all other modes of the project's goals and context.
+      Central repository for project knowledge, decisions, and patterns.
 
-      "YYYY-MM-DD HH:MM:SS" - Log of updates made will be appended as footnotes to the end of this file.
+      ## Structure
+      - `decisions/`: Architectural Decision Records (ADRs)
+      - `checkpoints/`: Versioned project states
+      - `domain-knowledge/`: Healthcare regulations and guidelines
+      - `development-phases/`: Project roadmap and milestones
+      - `systemPatterns.md`: Architectural patterns and standards
 
-      *
+    decisions/README.md: >
+      # Architectural Decisions
 
-      ## Project Goal
+      This directory follows the Architecture Decision Record (ADR) pattern.
 
-      *
+      ## Adding a New Decision
+      1. Create a new markdown file: `YYYYMMDD-short-title.md`
+      2. Use the ADR template
+      3. Reference related issues/PRs
+
+    checkpoints/README.md: >
+      # Development Checkpoints
+
+      Versioned snapshots of project state at key milestones.
+
+      ## Creating a Checkpoint
+      1. Document current state
+      2. Include rollback instructions
+      3. Reference related decisions
+
+    domain-knowledge/README.md: >
+      # Healthcare Domain Knowledge
+
+      Central repository for healthcare-specific information.
+      
+      ## Structure
+      - `regulations/`: Compliance requirements
+      - `clinical-guidelines/`: Medical best practices
+      - `terminology/`: Medical vocabularies
+      - `workflows/`: Clinical processes
+
+    development-phases/README.md: >
+      # Development Phases
+
+      Tracks project progress and upcoming work.
+      
+      ## Current Phase
+      - Phase 1: Foundation
+      - Focus: Core infrastructure
+      - Target: [Date]
+
+      ## Upcoming Phases
+      1. Phase 2: Core Features
+      2. Phase 3: Advanced Features
+      3. Phase 4: Compliance & Security
+      4. Phase 5: Optimization & Scale
 
       ## Key Features
 
