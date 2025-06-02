@@ -113,6 +113,25 @@ last_updated: 2025-06-02
 @optimization = VALIDATE against optimization targets in CI/CD
 @bundle_size = KEEP production JavaScript bundle under 150KB
 
+## AI Development Guidelines
+### Model Usage
+@reasoning_models = USE for architectural decisions and complex problem-solving
+@instruction_models = APPLY for implementation and code generation
+@domain_knowledge = MAINTAIN healthcare-specific context in memory bank
+@context_management = PRESERVE session context for complex workflows
+
+### Context Management
+@checkpoint_frequency = CREATE checkpoints at logical development milestones
+@decision_tracking = DOCUMENT all significant architectural decisions
+@context_validation = VERIFY context consistency before major changes
+@knowledge_retention = UPDATE memory bank with new insights and patterns
+
+### Development Process
+@progressive_enhancement = BUILD features incrementally with clear validation
+@domain_integration = INCORPORATE healthcare regulations in all features
+@collaboration = SHARE context and decisions with the development team
+@continuous_learning = UPDATE guidelines based on project evolution
+
 ## [lovable-memory-bank]
 lovablerules:
 

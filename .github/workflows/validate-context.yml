@@ -1,0 +1,53 @@
+name: Validate Context
+
+on:
+  push:
+    paths:
+      - 'memory-bank/**'
+      - '.windsurf/rules/**'
+  pull_request:
+    paths:
+      - 'memory-bank/**'
+      - '.windsurf/rules/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Validate Markdown
+      uses: docker://avto-dev/markdown-lint:v1
+      with:
+        args: '**/*.md'
+    
+    - name: Check Memory Bank Structure
+      run: |
+        # Check required directories exist
+        for dir in decisions checkpoints domain-knowledge development-phases; do
+          if [ ! -d "memory-bank/$dir" ]; then
+            echo "::error::Missing required directory: memory-bank/$dir"
+            exit 1
+          fi
+        done
+        
+        # Check README files exist
+        for dir in decisions checkpoints domain-knowledge development-phases; do
+          if [ ! -f "memory-bank/$dir/README.md" ]; then
+            echo "::error::Missing README in memory-bank/$dir"
+            exit 1
+          fi
+        done
+    
+    - name: Validate Windsurf Rules
+      run: |
+        if ! grep -q "@reasoning_models" .windsurf/rules/rules.md; then
+          echo "::error::Missing AI development guidelines in Windsurf rules"
+          exit 1
+        fi
+        
+        if ! grep -q "@checkpoint_frequency" .windsurf/rules/rules.md; then
+          echo "::error::Missing context management rules in Windsurf rules"
+          exit 1
+        fi
