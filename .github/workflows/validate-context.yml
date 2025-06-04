@@ -1,0 +1,68 @@
+name: Validate Context
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'memory-bank/**'
+      - '.windsurf/rules/**'
+      - '.github/workflows/validate-context.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'memory-bank/**'
+      - '.windsurf/rules/**'
+      - '.github/workflows/validate-context.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-context:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: |
+        npm install -g markdownlint-cli
+    
+    - name: Validate Memory Bank Structure
+      run: |
+        # Check required directories exist
+        for dir in architecture decisions domain-knowledge project-phases; do
+          if [ ! -d "memory-bank/$dir" ]; then
+            echo "::error::Missing required directory: memory-bank/$dir"
+            exit 1
+          fi
+        done
+        
+        # Check required files exist
+        for file in "memory-bank/README.md" "memory-bank/decision-log.md"; do
+          if [ ! -f "$file" ]; then
+            echo "::error::Missing required file: $file"
+            exit 1
+          fi
+        done
+        
+        # Validate markdown files
+        find memory-bank -name "*.md" -print0 | xargs -0 markdownlint -c .markdownlint.json || true
+    
+    - name: Validate Windsurf Rules
+      run: |
+        # Check for required sections in Windsurf rules
+        for section in "@reasoning_models" "@checkpoint_frequency" "@hipaa_compliance" "@phi_handling"; do
+          if ! grep -q "$section" .windsurf/rules/rules.md; then
+            echo "::error::Missing required section in Windsurf rules: $section"
+            exit 1
+          fi
+        done
+        
+        # Validate markdown formatting
+        markdownlint .windsurf/rules/rules.md -c .markdownlint.json || true

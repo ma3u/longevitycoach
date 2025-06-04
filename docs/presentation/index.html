@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longevity Lifestyle Coaching Platform - AI-Powered Health Optimization</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="nav-controls">
+                <button class="btn btn--sm nav-btn" id="prevBtn">← Previous</button>
+                <span class="slide-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">19</span>
+                </span>
+                <button class="btn btn--sm nav-btn" id="nextBtn">Next →</button>
+            </div>
+            <button class="btn btn--outline btn--sm" id="menuBtn">Menu</button>
+        </nav>
+
+        <!-- Slide Container -->
+        <div class="slide-container" id="slideContainer">
+            
+            <!-- Slide 1: Title -->
+            <div class="slide active" data-slide="1">
+                <div class="slide-content title-slide">
+                    <h1 class="title-main">Longevity AI Coach</h1>
+                    <h2 class="title-sub">Revolutionizing Health Optimization Through AI Agents</h2>
+                    <div class="title-meta">
+                        <p class="title-tagline">Personalized longevity coaching powered by MCP architecture</p>
+                        <div class="title-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">€63B</span>
+                                <span class="stat-label">Market by 2035</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">75%</span>
+                                <span class="stat-label">Cost Savings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Executive Summary -->
+            <div class="slide" data-slide="2">
+                <div class="slide-content">
+                    <h1>Executive Summary</h1>
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <h3>Market Opportunity</h3>
+                            <p>€63B longevity market by 2035 (10.37% CAGR) with underserved personalization needs</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>AI Innovation</h3>
+                            <p>Five specialized AI agents using MCP architecture for blood analysis, nutrition, movement, stress management, and supplements</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Business Model</h3>
+                            <p>Freemium platform with €29/month premium tier and B2B enterprise solutions at €15/employee/month</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Investment Ask</h3>
+                            <p>€66,600 for MVP development with breakeven at 190 premium subscribers (23 months)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Market Opportunity -->
+            <div class="slide" data-slide="3">
+                <div class="slide-content">
+                    <h1>Market Opportunity</h1>
+                    <div class="market-data">
+                        <div class="market-chart-container">
+                            <canvas id="marketChart" width="400" height="200"></canvas>
+                        </div>
+                        <div class="market-stats">
+                            <div class="market-stat">
+                                <h3>Longevity Market</h3>
+                                <div class="stat-large">€63.0B by 2035</div>
+                                <div class="stat-growth">10.37% CAGR</div>
+                                <p>From €19.29B in 2023</p>
+                            </div>
+                            <div class="market-stat">
+                                <h3>Digital Health Coaching</h3>
+                                <div class="stat-large">€35.38B by 2034</div>
+                                <div class="stat-growth">12.5% CAGR</div>
+                                <p>From €10.91B in 2024</p>
+                            </div>
+                            <div class="market-stat">
+                                <h3>Virtual Nutrition Apps</h3>
+                                <div class="stat-large">€1.1T by 2033</div>
+                                <div class="stat-growth">16.17% CAGR</div>
+                                <p>From €248.3B in 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Problem Statement -->
+            <div class="slide" data-slide="4">
+                <div class="slide-content">
+                    <h1>Problem Statement</h1>
+                    <div class="problem-grid">
+                        <div class="problem-item">
+                            <div class="problem-icon">⚕️</div>
+                            <h3>Generic Health Advice</h3>
+                            <p>Current health platforms provide one-size-fits-all recommendations without considering individual biomarkers and genetic factors</p>
+                        </div>
+                        <div class="problem-item">
+                            <div class="problem-icon">💰</div>
+                            <h3>Expensive Personalization</h3>
+                            <p>Traditional personalized health coaching costs €200-500/month, making it inaccessible to most people</p>
+                        </div>
+                        <div class="problem-item">
+                            <div class="problem-icon">🔍</div>
+                            <h3>Complex Data Interpretation</h3>
+                            <p>Individuals struggle to interpret blood tests, understand supplement interactions, and optimize protocols</p>
+                        </div>
+                        <div class="problem-item">
+                            <div class="problem-icon">⏰</div>
+                            <h3>Lack of Real-time Optimization</h3>
+                            <p>Health protocols remain static without continuous optimization based on changing biomarkers and lifestyle factors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Solution Overview -->
+            <div class="slide" data-slide="5">
+                <div class="slide-content">
+                    <h1>Solution Overview</h1>
+                    <div class="solution-main">
+                        <div class="solution-hero">
+                            <h2>AI-Powered Longevity Coach</h2>
+                            <p class="solution-tagline">Five specialized AI agents working together to provide personalized health optimization</p>
+                        </div>
+                        <div class="solution-features">
+                            <div class="feature-item">
+                                <h3>🩸 Blood Analysis Agent</h3>
+                                <p>Interprets lab results using Strunz/Osterhaus protocols for optimal biomarker ranges</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🥗 Nutrition Agent</h3>
+                                <p>Creates personalized meal plans and macronutrient optimization strategies</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🏃 Movement Agent</h3>
+                                <p>Prescribes exercise based on Böckel joint mobility assessments and individual capabilities</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🧘 Stress Management Agent</h3>
+                                <p>Provides breathing protocols and meditation guidance for optimal nervous system function</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>💊 Supplement Agent</h3>
+                                <p>Optimizes nutrient synergies using Strunz-based protocols for maximum bioavailability</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: User Journey -->
+            <div class="slide" data-slide="6">
+                <div class="slide-content">
+                    <h1>User Journey</h1>
+                    <div class="journey-container">
+                        <div class="journey-phase" data-phase="discovery">
+                            <div class="phase-header">
+                                <h3>Discovery</h3>
+                                <span class="emotion-tag">Curious/Cautious</span>
+                            </div>
+                            <div class="phase-content">
+                                <div class="actions">
+                                    <h4>Actions</h4>
+                                    <ul>
+                                        <li>Visit website</li>
+                                        <li>Read expert credentials</li>
+                                        <li>Take health quiz</li>
+                                    </ul>
+                                </div>
+                                <div class="goals">
+                                    <h4>Goals</h4>
+                                    <ul>
+                                        <li>Understand value proposition</li>
+                                        <li>Build initial trust</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="journey-phase" data-phase="onboarding">
+                            <div class="phase-header">
+                                <h3>Onboarding</h3>
+                                <span class="emotion-tag">Hopeful/Engaged</span>
+                            </div>
+                            <div class="phase-content">
+                                <div class="actions">
+                                    <h4>Actions</h4>
+                                    <ul>
+                                        <li>Create account</li>
+                                        <li>Complete health assessment</li>
+                                        <li>Set goals</li>
+                                    </ul>
+                                </div>
+                                <div class="goals">
+                                    <h4>Goals</h4>
+                                    <ul>
+                                        <li>Get personalized insights</li>
+                                        <li>See agent capabilities</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="journey-phase" data-phase="active">
+                            <div class="phase-header">
+                                <h3>Active Use</h3>
+                                <span class="emotion-tag">Motivated/Empowered</span>
+                            </div>
+                            <div class="phase-content">
+                                <div class="actions">
+                                    <h4>Actions</h4>
+                                    <ul>
+                                        <li>Upload blood tests</li>
+                                        <li>Get recommendations</li>
+                                        <li>Track progress</li>
+                                    </ul>
+                                </div>
+                                <div class="goals">
+                                    <h4>Goals</h4>
+                                    <ul>
+                                        <li>Improve health metrics</li>
+                                        <li>Build sustainable habits</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="journey-phase" data-phase="optimization">
+                            <div class="phase-header">
+                                <h3>Optimization</h3>
+                                <span class="emotion-tag">Confident/Autonomous</span>
+                            </div>
+                            <div class="phase-content">
+                                <div class="actions">
+                                    <h4>Actions</h4>
+                                    <ul>
+                                        <li>Fine-tune protocols</li>
+                                        <li>Share insights</li>
+                                        <li>Refer others</li>
+                                    </ul>
+                                </div>
+                                <div class="goals">
+                                    <h4>Goals</h4>
+                                    <ul>
+                                        <li>Maintain improvements</li>
+                                        <li>Help others</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: AI Agents Architecture -->
+            <div class="slide" data-slide="7">
+                <div class="slide-content">
+                    <h1>AI Agents Architecture</h1>
+                    <div class="agents-grid">
+                        <div class="agent-card" data-agent="blood">
+                            <div class="agent-icon">🩸</div>
+                            <h3>Blood Analysis Agent</h3>
+                            <p class="agent-function">Interprets lab results using Strunz/Osterhaus protocols</p>
+                            <div class="agent-details">
+                                <span class="platform">Cloudflare Workers</span>
+                                <span class="cost">$0.30/million requests</span>
+                            </div>
+                        </div>
+                        
+                        <div class="agent-card" data-agent="nutrition">
+                            <div class="agent-icon">🥗</div>
+                            <h3>Nutrition Agent</h3>
+                            <p class="agent-function">Personalized meal planning and supplement optimization</p>
+                            <div class="agent-details">
+                                <span class="platform">Vercel Serverless</span>
+                                <span class="cost">$0.60/million requests</span>
+                            </div>
+                        </div>
+                        
+                        <div class="agent-card" data-agent="movement">
+                            <div class="agent-icon">🏃</div>
+                            <h3>Movement Agent</h3>
+                            <p class="agent-function">Böckel joint mobility assessments and exercise prescription</p>
+                            <div class="agent-details">
+                                <span class="platform">AWS Lambda</span>
+                                <span class="cost">$0.20/million requests</span>
+                            </div>
+                        </div>
+                        
+                        <div class="agent-card" data-agent="stress">
+                            <div class="agent-icon">🧘</div>
+                            <h3>Stress Management Agent</h3>
+                            <p class="agent-function">Breathing protocols and meditation guidance</p>
+                            <div class="agent-details">
+                                <span class="platform">AWS Lambda</span>
+                                <span class="cost">$0.20/million requests</span>
+                            </div>
+                        </div>
+                        
+                        <div class="agent-card" data-agent="supplement">
+                            <div class="agent-icon">💊</div>
+                            <h3>Supplement Agent</h3>
+                            <p class="agent-function">Strunz-based nutrient synergy optimization</p>
+                            <div class="agent-details">
+                                <span class="platform">Vercel Serverless</span>
+                                <span class="cost">$0.60/million requests</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: MCP Implementation -->
+            <div class="slide" data-slide="8">
+                <div class="slide-content">
+                    <h1>MCP Implementation Details</h1>
+                    <div class="mcp-architecture">
+                        <div class="mcp-diagram">
+                            <div class="mcp-layer host">
+                                <h3>Host Layer</h3>
+                                <p>Next.js React PWA</p>
+                                <span class="cost-badge">€50/month</span>
+                            </div>
+                            <div class="mcp-layer clients">
+                                <h3>MCP Clients</h3>
+                                <p>Agent connection managers</p>
+                            </div>
+                            <div class="mcp-layer servers">
+                                <h3>MCP Servers</h3>
+                                <div class="server-list">
+                                    <div class="server-item">Blood Agent (Cloudflare)</div>
+                                    <div class="server-item">Nutrition Agent (Vercel)</div>
+                                    <div class="server-item">Movement Agent (AWS)</div>
+                                    <div class="server-item">Stress Agent (AWS)</div>
+                                    <div class="server-item">Supplement Agent (Vercel)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mcp-benefits">
+                            <h3>MCP Benefits</h3>
+                            <div class="benefit-list">
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">💰</span>
+                                    <span>75% cost reduction vs traditional LLM</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🏗️</span>
+                                    <span>Modular, scalable architecture</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🔒</span>
+                                    <span>Security through isolation</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🔧</span>
+                                    <span>Easy capability negotiation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Technical Architecture -->
+            <div class="slide" data-slide="9">
+                <div class="slide-content">
+                    <h1>Technical Architecture</h1>
+                    <div class="tech-stack">
+                        <div class="tech-category">
+                            <h3>Frontend</h3>
+                            <div class="tech-items">
+                                <div class="tech-item">Next.js 14</div>
+                                <div class="tech-item">React 18</div>
+                                <div class="tech-item">PWA Support</div>
+                                <div class="tech-item">TypeScript</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-category">
+                            <h3>AI Infrastructure</h3>
+                            <div class="tech-items">
+                                <div class="tech-item">MCP Protocol</div>
+                                <div class="tech-item">Claude 3.5 Sonnet</div>
+                                <div class="tech-item">OpenAI GPT-4</div>
+                                <div class="tech-item">Vector Databases</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-category">
+                            <h3>Backend Services</h3>
+                            <div class="tech-items">
+                                <div class="tech-item">Cloudflare Workers</div>
+                                <div class="tech-item">Vercel Serverless</div>
+                                <div class="tech-item">AWS Lambda</div>
+                                <div class="tech-item">PostgreSQL</div>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-category">
+                            <h3>Security & Analytics</h3>
+                            <div class="tech-items">
+                                <div class="tech-item">OAuth 2.0</div>
+                                <div class="tech-item">HIPAA Compliance</div>
+                                <div class="tech-item">Mixpanel Analytics</div>
+                                <div class="tech-item">Sentry Monitoring</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Business Model -->
+            <div class="slide" data-slide="10">
+                <div class="slide-content">
+                    <h1>Business Model</h1>
+                    <div class="business-models">
+                        <div class="model-card freemium">
+                            <h3>B2C Freemium</h3>
+                            <div class="pricing-tiers">
+                                <div class="tier">
+                                    <h4>Basic (Free)</h4>
+                                    <p class="price">€0/month</p>
+                                    <ul>
+                                        <li>5 agent interactions/month</li>
+                                        <li>Basic health quiz</li>
+                                        <li>General recommendations</li>
+                                    </ul>
+                                </div>
+                                <div class="tier premium">
+                                    <h4>Premium</h4>
+                                    <p class="price">€29/month</p>
+                                    <ul>
+                                        <li>Unlimited agent access</li>
+                                        <li>Blood test analysis</li>
+                                        <li>Personalized protocols</li>
+                                        <li>Progress tracking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="model-card b2b">
+                            <h3>B2B Enterprise</h3>
+                            <p class="price">€15/employee/month</p>
+                            <ul>
+                                <li>Corporate wellness programs</li>
+                                <li>Team health analytics</li>
+                                <li>Admin dashboard</li>
+                                <li>Bulk blood test processing</li>
+                                <li>Custom integrations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="model-card marketplace">
+                            <h3>Expert Marketplace</h3>
+                            <p class="price">30% commission</p>
+                            <ul>
+                                <li>Expert-created content</li>
+                                <li>Specialized protocols</li>
+                                <li>1-on-1 consultations</li>
+                                <li>Premium supplements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11: Revenue Projections -->
+            <div class="slide" data-slide="11">
+                <div class="slide-content">
+                    <h1>Revenue Projections</h1>
+                    <div class="revenue-content">
+                        <div class="revenue-chart-container">
+                            <canvas id="revenueChart" width="400" height="200"></canvas>
+                        </div>
+                        <div class="revenue-breakdown">
+                            <div class="year-breakdown">
+                                <h3>Year 1</h3>
+                                <div class="metrics">
+                                    <div class="metric">
+                                        <span class="metric-label">Users:</span>
+                                        <span class="metric-value">1,000</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Conversion:</span>
+                                        <span class="metric-value">10%</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Revenue:</span>
+                                        <span class="metric-value">€34,800</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Costs:</span>
+                                        <span class="metric-value">€66,600</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="year-breakdown">
+                                <h3>Year 2</h3>
+                                <div class="metrics">
+                                    <div class="metric">
+                                        <span class="metric-label">Users:</span>
+                                        <span class="metric-value">5,000</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Conversion:</span>
+                                        <span class="metric-value">15%</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Revenue:</span>
+                                        <span class="metric-value">€351,000</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Costs:</span>
+                                        <span class="metric-value">€180,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="breakeven-card">
+                                <h3>Break-even Analysis</h3>
+                                <p><strong>23 months</strong> to reach profitability</p>
+                                <p><strong>190 premium subscribers</strong> needed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Implementation Roadmap -->
+            <div class="slide" data-slide="12">
+                <div class="slide-content">
+                    <h1>Implementation Roadmap</h1>
+                    <div class="roadmap">
+                        <div class="phase mvp">
+                            <div class="phase-header">
+                                <h3>MVP Phase</h3>
+                                <span class="timeline">3 months</span>
+                                <span class="budget">€18,600</span>
+                            </div>
+                            <div class="phase-features">
+                                <h4>Core Features</h4>
+                                <ul>
+                                    <li>Blood analysis agent</li>
+                                    <li>Nutrition agent</li>
+                                    <li>Basic UI/UX</li>
+                                    <li>User authentication</li>
+                                    <li>Payment integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="phase scaling">
+                            <div class="phase-header">
+                                <h3>Scaling Phase</h3>
+                                <span class="timeline">6 months</span>
+                                <span class="budget">€48,000</span>
+                            </div>
+                            <div class="phase-features">
+                                <h4>Advanced Features</h4>
+                                <ul>
+                                    <li>All 5 AI agents</li>
+                                    <li>Mobile applications</li>
+                                    <li>Advanced analytics</li>
+                                    <li>Community features</li>
+                                    <li>B2B dashboard</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="phase enterprise">
+                            <div class="phase-header">
+                                <h3>Enterprise Phase</h3>
+                                <span class="timeline">12+ months</span>
+                                <span class="budget">€100,000+</span>
+                            </div>
+                            <div class="phase-features">
+                                <h4>Enterprise Features</h4>
+                                <ul>
+                                    <li>API marketplace</li>
+                                    <li>White-label solutions</li>
+                                    <li>Advanced integrations</li>
+                                    <li>Global expansion</li>
+                                    <li>Research partnerships</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Team & Expertise -->
+            <div class="slide" data-slide="13">
+                <div class="slide-content">
+                    <h1>Team & Expertise Required</h1>
+                    <div class="team-requirements">
+                        <div class="role-card">
+                            <h3>Technical Lead</h3>
+                            <div class="role-skills">
+                                <span class="skill">AI/ML Engineering</span>
+                                <span class="skill">MCP Architecture</span>
+                                <span class="skill">Full-stack Development</span>
+                            </div>
+                            <p class="role-cost">€60,000/year</p>
+                        </div>
+                        
+                        <div class="role-card">
+                            <h3>Health Expert</h3>
+                            <div class="role-skills">
+                                <span class="skill">Functional Medicine</span>
+                                <span class="skill">Strunz Protocols</span>
+                                <span class="skill">Research Background</span>
+                            </div>
+                            <p class="role-cost">€45,000/year</p>
+                        </div>
+                        
+                        <div class="role-card">
+                            <h3>Product Designer</h3>
+                            <div class="role-skills">
+                                <span class="skill">UX/UI Design</span>
+                                <span class="skill">Health App Experience</span>
+                                <span class="skill">User Research</span>
+                            </div>
+                            <p class="role-cost">€40,000/year</p>
+                        </div>
+                        
+                        <div class="role-card">
+                            <h3>Business Development</h3>
+                            <div class="role-skills">
+                                <span class="skill">Healthcare Partnerships</span>
+                                <span class="skill">B2B Sales</span>
+                                <span class="skill">Regulatory Knowledge</span>
+                            </div>
+                            <p class="role-cost">€50,000/year</p>
+                        </div>
+                    </div>
+                    
+                    <div class="advisors">
+                        <h3>Advisory Board Needs</h3>
+                        <div class="advisor-list">
+                            <div class="advisor">Medical AI Expert</div>
+                            <div class="advisor">Longevity Research Scientist</div>
+                            <div class="advisor">Healthcare Technology Investor</div>
+                            <div class="advisor">Regulatory Affairs Specialist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Competition Analysis -->
+            <div class="slide" data-slide="14">
+                <div class="slide-content">
+                    <h1>Competitive Landscape</h1>
+                    <div class="competition-matrix">
+                        <div class="competitor">
+                            <h3>Traditional Coaching</h3>
+                            <div class="competitor-details">
+                                <div class="pro">✓ Personal relationship</div>
+                                <div class="pro">✓ Proven expertise</div>
+                                <div class="con">✗ €200-500/month cost</div>
+                                <div class="con">✗ Limited availability</div>
+                                <div class="con">✗ Inconsistent quality</div>
+                            </div>
+                        </div>
+                        
+                        <div class="competitor">
+                            <h3>MyFitnessPal</h3>
+                            <div class="competitor-details">
+                                <div class="pro">✓ Large user base</div>
+                                <div class="pro">✓ Food tracking</div>
+                                <div class="con">✗ Generic recommendations</div>
+                                <div class="con">✗ No biomarker analysis</div>
+                                <div class="con">✗ Limited personalization</div>
+                            </div>
+                        </div>
+                        
+                        <div class="competitor">
+                            <h3>Noom</h3>
+                            <div class="competitor-details">
+                                <div class="pro">✓ Behavioral psychology</div>
+                                <div class="pro">✓ Proven weight loss</div>
+                                <div class="con">✗ Weight focus only</div>
+                                <div class="con">✗ No longevity protocols</div>
+                                <div class="con">✗ Limited health data</div>
+                            </div>
+                        </div>
+                        
+                        <div class="competitor us">
+                            <h3>Longevity AI Coach</h3>
+                            <div class="competitor-details">
+                                <div class="pro">✓ AI-powered personalization</div>
+                                <div class="pro">✓ Blood test analysis</div>
+                                <div class="pro">✓ Affordable pricing</div>
+                                <div class="pro">✓ Holistic approach</div>
+                                <div class="pro">✓ Real-time optimization</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 15: Investment Requirements -->
+            <div class="slide" data-slide="15">
+                <div class="slide-content">
+                    <h1>Investment Requirements</h1>
+                    <div class="investment-breakdown">
+                        <div class="funding-round">
+                            <h2>Seed Round: €200,000</h2>
+                            <div class="use-of-funds">
+                                <div class="fund-category">
+                                    <h3>Development (40%)</h3>
+                                    <div class="amount">€80,000</div>
+                                    <ul>
+                                        <li>AI agent development</li>
+                                        <li>MCP implementation</li>
+                                        <li>Frontend/backend development</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="fund-category">
+                                    <h3>Team (35%)</h3>
+                                    <div class="amount">€70,000</div>
+                                    <ul>
+                                        <li>Technical lead salary</li>
+                                        <li>Health expert consultation</li>
+                                        <li>Part-time designer</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="fund-category">
+                                    <h3>Operations (15%)</h3>
+                                    <div class="amount">€30,000</div>
+                                    <ul>
+                                        <li>Cloud infrastructure</li>
+                                        <li>Legal & compliance</li>
+                                        <li>Office setup</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="fund-category">
+                                    <h3>Marketing (10%)</h3>
+                                    <div class="amount">€20,000</div>
+                                    <ul>
+                                        <li>Beta user acquisition</li>
+                                        <li>Content creation</li>
+                                        <li>Partnership development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-funding">
+                            <h3>18-month runway to Series A</h3>
+                            <p>Target Series A: €2M at €20M valuation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Risk Mitigation -->
+            <div class="slide" data-slide="16">
+                <div class="slide-content">
+                    <h1>Risk Mitigation</h1>
+                    <div class="risks-grid">
+                        <div class="risk-item">
+                            <h3>🔒 Regulatory Risk</h3>
+                            <div class="risk-content">
+                                <p class="risk-desc">Health AI regulations evolving rapidly</p>
+                                <p class="mitigation"><strong>Mitigation:</strong> Partner with regulatory experts, maintain HIPAA compliance, position as wellness not medical device</p>
+                            </div>
+                        </div>
+                        
+                        <div class="risk-item">
+                            <h3>🤖 AI Accuracy Risk</h3>
+                            <div class="risk-content">
+                                <p class="risk-desc">AI recommendations could be suboptimal</p>
+                                <p class="mitigation"><strong>Mitigation:</strong> Expert validation, continuous learning, transparent uncertainty communication</p>
+                            </div>
+                        </div>
+                        
+                        <div class="risk-item">
+                            <h3>⚡ Technical Risk</h3>
+                            <div class="risk-content">
+                                <p class="risk-desc">MCP architecture unproven at scale</p>
+                                <p class="mitigation"><strong>Mitigation:</strong> Incremental rollout, fallback systems, extensive testing protocols</p>
+                            </div>
+                        </div>
+                        
+                        <div class="risk-item">
+                            <h3>🏢 Market Risk</h3>
+                            <div class="risk-content">
+                                <p class="risk-desc">User adoption slower than projected</p>
+                                <p class="mitigation"><strong>Mitigation:</strong> Freemium model, strong referral program, B2B partnerships for guaranteed revenue</p>
+                            </div>
+                        </div>
+                        
+                        <div class="risk-item">
+                            <h3>💰 Financial Risk</h3>
+                            <div class="risk-content">
+                                <p class="risk-desc">Higher customer acquisition costs</p>
+                                <p class="mitigation"><strong>Mitigation:</strong> Content marketing, expert partnerships, organic growth through results</p>
+                            </div>
+                        </div>
+                        
+                        <div class="risk-item">
+                            <h3>🚀 Competition Risk</h3>
+                            <div class="risk-content">
+                                <p class="risk-desc">Big tech entering longevity space</p>
+                                <p class="mitigation"><strong>Mitigation:</strong> First-mover advantage, specialized expertise, acquisition potential</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 17: Success Metrics -->
+            <div class="slide" data-slide="17">
+                <div class="slide-content">
+                    <h1>Key Success Metrics</h1>
+                    <div class="metrics-dashboard">
+                        <div class="metric-category">
+                            <h3>User Metrics</h3>
+                            <div class="metric-items">
+                                <div class="metric-item">
+                                    <span class="metric-label">Monthly Active Users</span>
+                                    <div class="metric-targets">
+                                        <span class="target">Month 6: 500</span>
+                                        <span class="target">Month 12: 2,000</span>
+                                        <span class="target">Month 24: 10,000</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Premium Conversion Rate</span>
+                                    <div class="metric-targets">
+                                        <span class="target">Year 1: 10%</span>
+                                        <span class="target">Year 2: 15%</span>
+                                        <span class="target">Year 3: 20%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-category">
+                            <h3>Business Metrics</h3>
+                            <div class="metric-items">
+                                <div class="metric-item">
+                                    <span class="metric-label">Monthly Recurring Revenue</span>
+                                    <div class="metric-targets">
+                                        <span class="target">Month 12: €3,000</span>
+                                        <span class="target">Month 18: €15,000</span>
+                                        <span class="target">Month 24: €45,000</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Customer Acquisition Cost</span>
+                                    <div class="metric-targets">
+                                        <span class="target">Target: <€50</span>
+                                        <span class="target">LTV/CAC: >3:1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-category">
+                            <h3>Health Impact</h3>
+                            <div class="metric-items">
+                                <div class="metric-item">
+                                    <span class="metric-label">Biomarker Improvements</span>
+                                    <div class="metric-targets">
+                                        <span class="target">80% show improvement</span>
+                                        <span class="target">Average 15% optimization</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">User Satisfaction</span>
+                                    <div class="metric-targets">
+                                        <span class="target">NPS: >50</span>
+                                        <span class="target">Retention: >85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 18: Next Steps -->
+            <div class="slide" data-slide="18">
+                <div class="slide-content">
+                    <h1>Next Steps</h1>
+                    <div class="next-steps">
+                        <div class="step-timeline">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Immediate (Next 30 days)</h3>
+                                    <ul>
+                                        <li>Secure seed funding commitment</li>
+                                        <li>Finalize technical architecture</li>
+                                        <li>Recruit technical lead</li>
+                                        <li>Begin MVP development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Short-term (Next 90 days)</h3>
+                                    <ul>
+                                        <li>Complete first AI agent (Blood Analysis)</li>
+                                        <li>Establish healthcare partnerships</li>
+                                        <li>Build beta user cohort</li>
+                                        <li>Regulatory compliance framework</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Medium-term (Next 6 months)</h3>
+                                    <ul>
+                                        <li>Launch MVP with 2 agents</li>
+                                        <li>Achieve first 100 paying users</li>
+                                        <li>Complete all 5 AI agents</li>
+                                        <li>Prepare Series A materials</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="call-to-action">
+                            <h3>Ready to revolutionize personalized health?</h3>
+                            <p>Join us in making longevity optimization accessible to everyone through AI.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 19: Contact -->
+            <div class="slide" data-slide="19">
+                <div class="slide-content contact-slide">
+                    <h1>Contact Information</h1>
+                    <div class="contact-content">
+                        <div class="contact-main">
+                            <h2>Let's Build the Future of Longevity Together</h2>
+                            <p class="contact-tagline">Transforming health optimization through AI-powered personalization</p>
+                        </div>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <div class="contact-info">
+                                    <h4>Email</h4>
+                                    <p>hello@longevityaicoach.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <span class="contact-icon">🌐</span>
+                                <div class="contact-info">
+                                    <h4>Website</h4>
+                                    <p>www.longevityaicoach.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <span class="contact-icon">💼</span>
+                                <div class="contact-info">
+                                    <h4>LinkedIn</h4>
+                                    <p>/company/longevity-ai-coach</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-cta">
+                            <h3>Investment Opportunity</h3>
+                            <p>€200,000 seed round • 18-month runway • €20M Series A target</p>
+                            <button class="btn btn--primary btn--lg">Schedule Meeting</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Overlay -->
+            <div class="menu-overlay" id="menuOverlay">
+                <div class="menu-content">
+                    <h2>Presentation Menu</h2>
+                    <div class="menu-grid">
+                        <button class="menu-item" data-slide="1">1. Title</button>
+                        <button class="menu-item" data-slide="2">2. Executive Summary</button>
+                        <button class="menu-item" data-slide="3">3. Market Opportunity</button>
+                        <button class="menu-item" data-slide="4">4. Problem Statement</button>
+                        <button class="menu-item" data-slide="5">5. Solution Overview</button>
+                        <button class="menu-item" data-slide="6">6. User Journey</button>
+                        <button class="menu-item" data-slide="7">7. AI Agents</button>
+                        <button class="menu-item" data-slide="8">8. MCP Implementation</button>
+                        <button class="menu-item" data-slide="9">9. Technical Architecture</button>
+                        <button class="menu-item" data-slide="10">10. Business Model</button>
+                        <button class="menu-item" data-slide="11">11. Revenue Projections</button>
+                        <button class="menu-item" data-slide="12">12. Implementation</button>
+                        <button class="menu-item" data-slide="13">13. Team & Expertise</button>
+                        <button class="menu-item" data-slide="14">14. Competition</button>
+                        <button class="menu-item" data-slide="15">15. Investment</button>
+                        <button class="menu-item" data-slide="16">16. Risk Mitigation</button>
+                        <button class="menu-item" data-slide="17">17. Success Metrics</button>
+                        <button class="menu-item" data-slide="18">18. Next Steps</button>
+                        <button class="menu-item" data-slide="19">19. Contact</button>
+                    </div>
+                    <button class="btn btn--secondary" id="closeMenu">Close Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

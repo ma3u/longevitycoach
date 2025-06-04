@@ -1,0 +1,73 @@
+name: Memory Bank Sync
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'memory-bank/**'
+      - '.github/workflows/memory-bank.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'memory-bank/**'
+      - '.github/workflows/memory-bank.yml'
+  workflow_dispatch:
+
+jobs:
+  sync-memory-bank:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm install -g markdownlint-cli
+        
+    - name: Validate memory bank structure
+      run: |
+        # Check required directories exist
+        for dir in architecture decisions domain-knowledge project-phases; do
+          if [ ! -d "memory-bank/$dir" ]; then
+            echo "::error::Missing required directory: memory-bank/$dir"
+            exit 1
+          fi
+        done
+        
+        # Check required files exist
+        for file in "memory-bank/README.md" "memory-bank/decision-log.md"; do
+          if [ ! -f "$file" ]; then
+            echo "::error::Missing required file: $file"
+            exit 1
+          fi
+        done
+        
+        # Validate markdown files
+        find memory-bank -name "*.md" -print0 | xargs -0 markdownlint -c .markdownlint.json
+        
+    - name: Create summary
+      run: |
+        echo "# Memory Bank Summary" > memory-summary.md
+        echo "Updated: $(date)" >> memory-summary.md
+        echo "" >> memory-summary.md
+        
+        echo "## Recent Changes" >> memory-summary.md
+        git log -n 3 --pretty=format:'- %s' -- memory-bank/ >> memory-summary.md
+        
+        echo "" >> memory-summary.md
+        echo "## Current Structure" >> memory-summary.md
+        find memory-bank -type f -name "*.md" | sort >> memory-summary.md
+        
+    - name: Upload summary
+      uses: actions/upload-artifact@v3
+      with:
+        name: memory-bank-summary
+        path: memory-summary.md
+        retention-days: 5
