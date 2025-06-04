@@ -1,0 +1,28 @@
+# Supabase project configuration
+[api]
+# The port to expose the API on
+port = 54321
+
+[db]
+# The database port
+db_port = 54322
+# The database name
+db_name = "postgres"
+# The database user
+db_user = "postgres"
+# The database password
+db_password = "postgres"
+
+[studio]
+# The port to expose the Studio on
+port = 54323
+# Enable or disable the Studio
+enabled = true
+
+[inbucket]
+# Enable or disable the email testing service
+enabled = true
+
+[storage]
+# Enable or disable the storage service
+enabled = true
