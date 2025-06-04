@@ -12,55 +12,305 @@
     <meta property="og:url" content="https://ma3u.github.io/longevitycoach">
     <meta property="og:image" content="https://ma3u.github.io/longevitycoach/images/logo.png">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="presentation/css/reveal.css">
-    <link rel="stylesheet" href="presentation/css/theme/white.css">
+    <style>
+        /* Main Layout */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1F2937;
+            background-color: #F9FAFB;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --border: #E5E7EB;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, 
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Header -->
+    <header>
         <div class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="Longevity Coach Logo" class="logo-img">
-                <span>Longevity<span>Journey</span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#my-journey">My Journey</a></li>
-                <li><a href="reference-values/">Reference Values</a></li>
-                <li><a href="#presentation">Presentation</a></li>
-                <li><a href="#contact" class="cta-button">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>My Personal Journey to Optimal Health & Longevity</h1>
-                <p class="subtitle">Documenting my path to better health through data-driven approaches, evidence-based strategies, and the latest longevity research.</p>
-                <div class="cta-container">
-                    <a href="#my-journey" class="cta-button primary">Explore My Journey</a>
-                    <a href="presentation/" class="cta-button secondary">View Presentation</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="presentation-preview">
-                    <div class="presentation-frame">
-                        <iframe src="presentation/" frameborder="0" allowfullscreen></iframe>
-                        <div class="presentation-overlay">
-                            <a href="presentation/" class="play-button">
-                                <i class="fas fa-play"></i>
-                            </a>
-                            <p>Watch the full presentation</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    Longevity Coach
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/personal/journey/">My Journey</a></li>
+                    <li><a href="/reference-values/">Reference Values</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
+
+    <!-- Hero Section with Profile Picture -->
+    <section class="hero">
+        <div class="container" style="text-align: center;">
+            <img src="images/photo_ma3u.webp" alt="Ma3u" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 4px solid #4F46E5;">
+            <h1>Welcome to My Longevity Journey</h1>
+            <p>Documenting my path to better health through data-driven approaches, evidence-based strategies, and the latest longevity research.</p>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#my-journey" class="btn btn-primary">Explore My Journey</a>
+                <a href="/personal/journey/" class="btn btn-outline">View Detailed Timeline</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Journey Section -->
+    <section id="my-journey" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Health Journey</h2>
+                <p>Key milestones and insights from my personal health optimization journey</p>
+            </div>
+            
+            <div class="journey-highlights">
+                <!-- Add journey highlights here -->
+                <div class="journey-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data-Driven Approach</h3>
+                    <p>Tracking and analyzing health metrics to make informed decisions about my well-being.</p>
+                </div>
+                
+                <div class="journey-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Fitness & Performance</h3>
+                    <p>Optimizing physical performance through targeted exercise and recovery protocols.</p>
+                </div>
+                
+                <div class="journey-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Nutrition & Diet</h3>
+                    <p>Exploring evidence-based nutrition strategies for longevity and vitality.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/personal/journey/" class="btn btn-primary">View Full Journey Timeline</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presentation Section -->
+    <section id="presentation" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Presentation</h2>
+                <p>Explore my comprehensive presentation on longevity and health optimization</p>
+            </div>
+            
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 0.5rem; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                <iframe src="presentation/" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="presentation/" class="btn btn-outline" target="_blank">Open Fullscreen Presentation</a>
+            </div>
+        </div>
+    </section>
+
 
     <!-- My Journey Section -->
     <section id="my-journey" class="section">
@@ -345,68 +595,41 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="science" class="section bg-light">
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
         <div class="container">
-            <h2>Powered by Expert Knowledge</h2>
-            <p class="section-intro">Our AI system is trained on methodologies from leading longevity experts and researchers:</p>
-            
-            <div class="expert-grid">
-                <div class="expert-card">
-                    <div class="expert-avatar">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Dr. Ulrich Strunz</h3>
-                    <p class="expert-specialty">Mitochondrial Health & Longevity</p>
-                    <p>Optimal blood value targets for cellular energy and longevity</p>
-                </div>
-                <div class="expert-card">
-                    <div class="expert-avatar">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Thiemo Osterhaus</h3>
-                    <p class="expert-specialty">Functional Medicine</p>
-                    <p>Advanced biomarker interpretation and metabolic optimization</p>
-                </div>
-                <div class="expert-card">
-                    <div class="expert-avatar">
-                        <i class="fas fa-dna"></i>
-                    </div>
-                    <h3>Helena Orfanos-Böckel</h3>
-                    <p class="expert-specialty">Metabolic Health</p>
-                    <p>Personalized nutrition and lifestyle interventions</p>
-                </div>
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have questions or want to connect? Reach out to me!</p>
             </div>
-            
-            <div class="experts">
-                <h3>Featured Experts</h3>
-                <div class="experts-grid">
-                    <div class="expert">
-                        <h4>Dr. Ulrich Strunz</h4>
-                        <p>Mitochondrial function and longevity</p>
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <div class="expert">
-                        <h4>Thiemo Osterhaus</h4>
-                        <p>Functional medicine approaches</p>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-                    <div class="expert">
-                        <h4>Helena Orfanos-Böckel</h4>
-                        <p>Metabolic optimization</p>
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
                     </div>
-                </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="contact" class="section cta-section">
-        <div class="container">
-            <h2>Ready to Optimize Your Health?</h2>
-            <p>Join the waitlist for early access to the Longevity Coach platform.</p>
-            <form id="waitlist-form" class="waitlist-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit" class="cta-button primary">Join Waitlist</button>
-            </form>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/yourprofile" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://github.com/yourprofile" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -414,44 +637,24 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Longevity<span>Coach</span></div>
-                <p>Empowering your health journey with AI and longevity science.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i> Longevity Coach
                 </div>
-            </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#">Pricing</a></li>
-                    </ul>
+                <p>Empowering you to optimize your health and longevity through data-driven insights</p>
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                    <a href="/personal/journey/">My Journey</a>
+                    <a href="/reference-values/">Reference Values</a>
+                    <a href="#contact">Contact</a>
                 </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/cookies">Cookie Policy</a>
                 </div>
-                <div class="footer-column">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
+                <div class="copyright">
+                    &copy; 2025 Longevity Coach. All rights reserved.
                 </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2025 Longevity Coach. All rights reserved.</p>
             </div>
         </div>
     </footer>
