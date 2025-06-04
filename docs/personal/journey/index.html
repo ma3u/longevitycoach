@@ -16,33 +16,12 @@
             background-color: #F9FAFB;
             margin: 0;
             padding: 0;
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Left Sidebar */
-        .sidebar {
-            width: 30%;
-            max-width: 400px;
-            background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            background: white;
-            position: relative;
-            z-index: 2;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            position: relative;
         }
 
         @keyframes backgroundScroll {
@@ -481,39 +460,23 @@
     </style>
 </head>
 <body>
-    <!-- Left Sidebar -->
-    <div class="sidebar">
-        <!-- Profile Section -->
-        <div class="profile-section" style="padding: 2rem; color: white; text-align: center;">
-            <img src="/img/photo_ma3u.jpg" alt="Profile Photo" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid white; margin-bottom: 1rem;">
-            <h1 style="margin: 0.5rem 0; font-size: 1.5rem;">My Health Journey</h1>
-            <p style="opacity: 0.9; margin-bottom: 1.5rem;">Tracking progress and milestones</p>
-            <a href="https://www.linkedin.com/pulse/build-personalized-health-coach-based-current-state-buchhorn-roth-ptyfe/" target="_blank" style="display: inline-flex; align-items: center; color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem;">
-                <i class="fab fa-linkedin" style="margin-right: 0.5rem;"></i>
-                Read My Story
-            </a>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="/" class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    Longevity Coach
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/personal/journey/" class="active">My Journey</a></li>
+                    <li><a href="/personal/reference-values/">Reference Values</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Header -->
-        <header>
-            <div class="container">
-                <nav class="navbar">
-                    <a href="/" class="logo" style="color: #4F46E5;">
-                        <i class="fas fa-heartbeat"></i>
-                        Longevity Coach
-                    </a>
-                    <ul class="nav-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/personal/journey/" class="active">My Journey</a></li>
-                        <li><a href="/personal/reference-values/">Reference Values</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -861,10 +824,6 @@
             </div>
         </div>
         </section>
-    </div>
-</body>
-
-    </div>
     <!-- Key Learnings -->
     <section class="learnings">
         <div class="container">
@@ -1052,13 +1011,5 @@
             <div class="footer-links">
                 <a href="/">Home</a>
                 <a href="/personal/journey/">My Journey</a>
-                <a href="/personal/reference-values/">Reference Values</a>
-                <a href="#contact">Contact</a>
-            </div>
-            
-            <p class="copyright"> 2023 Longevity Coach. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
 </body>
 </html>

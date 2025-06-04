@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'docs/**'
+      - '.github/workflows/gh-pages.yml'
   workflow_dispatch:
 
 permissions:
@@ -31,13 +32,43 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+
+      - name: Install dependencies
+        run: |
+          if [ -f "docs/package.json" ]; then
+            npm ci --prefix docs
+          fi
+
+      - name: Build (if needed)
+        run: |
+          if [ -f "docs/package.json" ] && grep -q "build" docs/package.json; then
+            npm run build --prefix docs
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'docs'
+          path: 'docs/.'  # Include all files in the docs directory
           retention-days: 1
 
       - name: Deploy to GitHub Pages
