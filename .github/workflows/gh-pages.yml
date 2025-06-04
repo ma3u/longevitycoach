@@ -8,17 +8,20 @@ on:
       - '.github/workflows/gh-pages.yml'
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Allow one concurrent deployment
 concurrency:
   group: 'pages'
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  # Single deploy job since we're just deploying static content
+  deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -29,48 +32,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          # Fetch all history for proper versioning
           fetch-depth: 0
+          # Don't persist credentials as we're not pushing back
           persist-credentials: false
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Cache dependencies
-        id: cache-deps
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-
-      - name: Install dependencies
+      # Verify docs directory exists and has content
+      - name: Verify docs directory
         run: |
-          if [ -f "docs/package.json" ]; then
-            npm ci --prefix docs
+          if [ ! -d "docs" ]; then
+            echo "❌ Error: docs directory not found"
+            exit 1
           fi
-
-      - name: Build (if needed)
-        run: |
-          if [ -f "docs/package.json" ] && grep -q "build" docs/package.json; then
-            npm run build --prefix docs
+          
+          if [ -z "$(ls -A docs)" ]; then
+            echo "❌ Error: docs directory is empty"
+            exit 1
           fi
+          
+          echo "✅ docs directory is valid"
 
+      # Configure GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
+      # Upload the static site as an artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'docs/.'  # Include all files in the docs directory
+          # Upload everything in the docs directory
+          path: 'docs/.'
+          # Keep artifacts for 1 day
           retention-days: 1
 
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
