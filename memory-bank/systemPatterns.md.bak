@@ -1,17 +1,14 @@
-
 # Healthcare Longevity Platform - System Patterns
 
 > **Last Updated:** 2025-06-02  
 > **Version:** 2.0.0  
 > **Status:** Active  
 
-This document outlines the architectural patterns, technology standards, and implementation guidelines for the 
-Healthcare Longevity Platform.
+This document outlines the architectural patterns, technology standards, and implementation guidelines for the Healthcare Longevity Platform.
 
 ## Architecture Overview
 
 ### Core Stack
-
 - **Frontend**: TypeScript/React with Next.js 14
 - **State Management**: React Query + Zustand
 - **API Layer**: Next.js API Routes
@@ -20,7 +17,6 @@ Healthcare Longevity Platform.
 - **Compliance**: FHIR R4, HIPAA, GDPR
 
 ### Key Characteristics
-
 - **Standards-Based**: Full compliance with HL7 FHIR R4, LOINC, and SNOMED CT
 - **Cloud-Native**: Built on Supabase with automatic scaling and high availability
 - **Security-First**: End-to-end encryption, audit logging, and role-based access control
@@ -30,7 +26,6 @@ Healthcare Longevity Platform.
 ## Technology Standards
 
 ### Required Technologies
-
 - TypeScript 5.0+ with strict mode
 - React 18+ with functional components and hooks
 - Next.js 14+ with App Router
@@ -39,7 +34,6 @@ Healthcare Longevity Platform.
 - Zod for schema validation
 
 ### Prohibited Technologies
-
 - jQuery
 - Angular
 - Emotion CSS
@@ -49,7 +43,6 @@ Healthcare Longevity Platform.
 ## Implementation Guidelines
 
 ### Data Layer
-
 1. **Database**
    - Use Supabase RLS (Row Level Security) for all data access
    - Implement proper indexing for all query patterns
@@ -63,7 +56,6 @@ Healthcare Longevity Platform.
    - Rate limiting and request validation
 
 ### Frontend Architecture
-
 1. **Component Structure**
    - Feature-based organization
    - Atomic design principles
@@ -77,7 +69,6 @@ Healthcare Longevity Platform.
    - Form state: React Hook Form
 
 ### Security Requirements
-
 1. **Authentication**
    - JWT with short expiration (15m)
    - Refresh tokens with rotation
@@ -103,7 +94,6 @@ Healthcare Longevity Platform.
 ## Compliance Requirements
 
 ### HIPAA Compliance
-
 - [ ] Data encryption at rest (AES-256)
 - [ ] Data encryption in transit (TLS 1.3+)
 - [ ] Access controls and audit logging
@@ -111,7 +101,6 @@ Healthcare Longevity Platform.
 - [ ] Regular security risk assessments
 
 ### GDPR Compliance
-
 - [ ] Data minimization
 - [ ] Right to be forgotten
 - [ ] Data portability
@@ -121,7 +110,6 @@ Healthcare Longevity Platform.
 ## Development Workflow
 
 ### Branch Strategy
-
 - `main` - Production-ready code
 - `develop` - Integration branch
 - `feature/*` - New features
@@ -129,7 +117,6 @@ Healthcare Longevity Platform.
 - `release/*` - Release preparation
 
 ### Code Review Process
-
 1. Create feature branch from `develop`
 2. Open draft PR early for feedback
 3. Request reviews from at least one team member
@@ -140,7 +127,6 @@ Healthcare Longevity Platform.
 ## Monitoring and Observability
 
 ### Required Metrics
-
 - API response times
 - Error rates
 - Resource utilization
@@ -148,7 +134,6 @@ Healthcare Longevity Platform.
 - Feature usage
 
 ### Alerting
-
 - PagerDuty integration for critical alerts
 - Slack notifications for warnings
 - Daily digest of system health
@@ -156,7 +141,6 @@ Healthcare Longevity Platform.
 ## Documentation Requirements
 
 ### Required Documentation
-
 - API documentation (OpenAPI/Swagger)
 - Architecture Decision Records (ADRs)
 - Runbooks for common operations
@@ -164,7 +148,6 @@ Healthcare Longevity Platform.
 - Compliance documentation
 
 ### Documentation Standards
-
 - Use Markdown format
 - Keep documentation up-to-date
 - Include examples and diagrams
@@ -173,7 +156,6 @@ Healthcare Longevity Platform.
 ## Deployment Strategy
 
 ### Environments
-
 1. **Development**
    - For active development
    - Auto-deployed on push to feature branches
@@ -189,7 +171,6 @@ Healthcare Longevity Platform.
    - Feature flags for gradual rollouts
 
 ### Rollback Plan
-
 - Automated health checks
 - Database migration rollback scripts
 - Blue-green deployment strategy
@@ -198,14 +179,12 @@ Healthcare Longevity Platform.
 ## Incident Response
 
 ### Severity Levels
-
 1. **SEV-1**: Complete system outage
 2. **SEV-2**: Major functionality impacted
 3. **SEV-3**: Minor issues with workarounds
 4. **SEV-4**: Cosmetic or low-impact issues
 
 ### Response Process
-
 1. Acknowledge the incident
 2. Assemble response team
 3. Mitigate impact
@@ -216,14 +195,12 @@ Healthcare Longevity Platform.
 ## Future Considerations
 
 ### Technical Debt
-
 - [ ] Implement GraphQL API layer
 - [ ] Add real-time updates with WebSockets
 - [ ] Enhance monitoring with OpenTelemetry
 - [ ] Implement A/B testing framework
 
 ### Scalability
-
 - Database sharding strategy
 - CDN integration for static assets
 - Edge computing for global performance
@@ -234,32 +211,21 @@ Healthcare Longevity Platform.
 
 ## Coding Patterns
 
-- **Type Safety**: All business logic and UI components are implemented in TypeScript, ensuring strict type safety and 
-reducing runtime errors.
-- **Feature-Based Structure**: Components, hooks, and stores are organized by feature domain (e.g., auth, blood-tests, 
-analysis) for scalability and maintainability.
-- **Atomic Design**: UI components follow atomic design principles (atoms, molecules, organisms) using shadcn/ui and 
-Tailwind CSS for consistency.
-- **State Management**: Zustand is used for lightweight, composable state management, with selectors for efficient 
-re-renders.
+- **Type Safety**: All business logic and UI components are implemented in TypeScript, ensuring strict type safety and reducing runtime errors.
+- **Feature-Based Structure**: Components, hooks, and stores are organized by feature domain (e.g., auth, blood-tests, analysis) for scalability and maintainability.
+- **Atomic Design**: UI components follow atomic design principles (atoms, molecules, organisms) using shadcn/ui and Tailwind CSS for consistency.
+- **State Management**: Zustand is used for lightweight, composable state management, with selectors for efficient re-renders.
 - **Form Handling**: Forms leverage React Hook Form and Zod for schema validation, ensuring robust user input handling.
-- **Data Visualization**: Recharts is used for biomarker and trend visualization, with JetBrains Mono font for data 
-clarity.
-- **Accessibility**: All components are built to WCAG 2.1 AA standards with keyboard navigation and high-contrast 
-support.
-- **Testing**: Jest, React Testing Library, MSW, Playwright, and Chromatic are used for unit, integration, E2E, and 
-visual regression testing.
+- **Data Visualization**: Recharts is used for biomarker and trend visualization, with JetBrains Mono font for data clarity.
+- **Accessibility**: All components are built to WCAG 2.1 AA standards with keyboard navigation and high-contrast support.
+- **Testing**: Jest, React Testing Library, MSW, Playwright, and Chromatic are used for unit, integration, E2E, and visual regression testing.
 
 ## Architectural Patterns
 
-- **Frontend**: Next.js 14 (React 18, PWA, TypeScript) for SSR, routing, and offline support. Feature-based folder 
-structure and code splitting for performance.
-- **Backend**: Cloudflare Workers for scalable, low-latency API endpoints. Supabase Postgres for secure, HIPAA-ready 
-data storage.
-- **AI Infrastructure**: MCP Protocol (FastMCP) mediates between frontend and LLMs (Claude 3.5 Sonnet or GPT-4) for 
-blood analysis, recommendations, and protocol generation. Vector DB (Supabase) for semantic retrieval.
-- **Security**: OAuth 2.1 for authentication, with future HIPAA compliance, Mixpanel, and Sentry for analytics and 
-monitoring.
+- **Frontend**: Next.js 14 (React 18, PWA, TypeScript) for SSR, routing, and offline support. Feature-based folder structure and code splitting for performance.
+- **Backend**: Cloudflare Workers for scalable, low-latency API endpoints. Supabase Postgres for secure, HIPAA-ready data storage.
+- **AI Infrastructure**: MCP Protocol (FastMCP) mediates between frontend and LLMs (Claude 3.5 Sonnet or GPT-4) for blood analysis, recommendations, and protocol generation. Vector DB (Supabase) for semantic retrieval.
+- **Security**: OAuth 2.1 for authentication, with future HIPAA compliance, Mixpanel, and Sentry for analytics and monitoring.
 - **Data Flow**: All sensitive data encrypted in transit and at rest. API endpoints validate and sanitize all inputs.
 
 ## Sequence Diagram: User Journey (Blood Test Analysis)
@@ -290,30 +256,23 @@ sequenceDiagram
 
 ## Technical Decision Rationale & Validation
 
-- **Next.js 14 + React 18**: Enables hybrid SSR/SSG and PWA support, improving SEO, performance, and offline access. 
-TypeScript enforces type safety and maintainability.
+- **Next.js 14 + React 18**: Enables hybrid SSR/SSG and PWA support, improving SEO, performance, and offline access. TypeScript enforces type safety and maintainability.
 - **Cloudflare Workers**: Chosen for scalable, low-latency edge compute. Enables secure, fast API endpoints globally.
-- **Supabase (Postgres + Vector DB)**: Provides secure, scalable, and HIPAA-ready storage, with vector search for 
-semantic retrieval and personalized recommendations.
-- **MCP Protocol (FastMCP)**: Abstracts AI agent orchestration, enabling modular, cost-efficient, and explainable 
-LLM-powered analysis.
-- **LLMs (Claude 3.5/GPT-4)**: Used for biomarker interpretation, protocol generation, and personalized 
-recommendations. Both support advanced reasoning and medical context.
-- **Security**: OAuth 2.1 is industry standard for authentication. All sensitive data is encrypted at rest and in 
-transit. HIPAA, Mixpanel, and Sentry are planned for compliance, analytics, and monitoring.
+- **Supabase (Postgres + Vector DB)**: Provides secure, scalable, and HIPAA-ready storage, with vector search for semantic retrieval and personalized recommendations.
+- **MCP Protocol (FastMCP)**: Abstracts AI agent orchestration, enabling modular, cost-efficient, and explainable LLM-powered analysis.
+- **LLMs (Claude 3.5/GPT-4)**: Used for biomarker interpretation, protocol generation, and personalized recommendations. Both support advanced reasoning and medical context.
+- **Security**: OAuth 2.1 is industry standard for authentication. All sensitive data is encrypted at rest and in transit. HIPAA, Mixpanel, and Sentry are planned for compliance, analytics, and monitoring.
 
-**Validation**: This stack is modern, scalable, and aligns with the needs of a longevity-focused health platform. All 
-major decisions are based on proven patterns in health tech, with a focus on security, compliance, and user experience.
+**Validation**: This stack is modern, scalable, and aligns with the needs of a longevity-focused health platform. All major decisions are based on proven patterns in health tech, with a focus on security, compliance, and user experience.
+
+# Blood Test Analysis System - Technical Specifications
 
 ## 1. System Overview
 
 ### 1.1 Purpose
-
-This document provides detailed technical specifications for implementing a blood test analysis system based on 
-healthcare interoperability standards (FHIR, LOINC, SNOMED CT) using Supabase as the backend infrastructure.
+This document provides detailed technical specifications for implementing a blood test analysis system based on healthcare interoperability standards (FHIR, LOINC, SNOMED CT) using Supabase as the backend infrastructure.
 
 ### 1.2 Scope
-
 The system will:
 - Store and process blood test results in standardized formats
 - Provide real-time trend analysis and anomaly detection
@@ -322,7 +281,6 @@ The system will:
 - Support time-series analytics for longitudinal patient monitoring
 
 ### 1.3 Architecture Principles
-
 - **Standards-Based**: Full compliance with HL7 FHIR R4, LOINC, and SNOMED CT
 - **Cloud-Native**: Built on Supabase with automatic scaling and high availability
 - **Security-First**: End-to-end encryption, audit logging, and role-based access control
@@ -334,21 +292,18 @@ The system will:
 ### 2.1 System Components
 
 #### 2.1.1 Database Layer (Supabase/PostgreSQL)
-
 - **Primary Database**: PostgreSQL 15+ with TimescaleDB extension
 - **Replication**: Multi-region setup with read replicas
 - **Backup Strategy**: Point-in-time recovery + daily automated backups
 - **Security**: Row Level Security (RLS) policies, encryption at rest
 
 #### 2.1.2 API Layer
-
 - **Framework**: Supabase PostgREST with custom functions
 - **Authentication**: JWT-based with role-based access control
 - **Rate Limiting**: 1000 requests/minute per authenticated user
 - **Documentation**: OpenAPI 3.0 specification with interactive docs
 
 #### 2.1.3 Integration Layer
-
 - **FHIR Server**: Custom middleware for FHIR resource handling
 - **LOINC Mapper**: Automated mapping service with 95%+ accuracy
 - **HL7 Interface**: Support for HL7 v2 and FHIR message processing
@@ -544,7 +499,6 @@ CREATE POLICY provider_full_access ON blood_tests
 ```
 
 #### 2.4.2 Data Encryption
-
 - **At Rest**: AES-256 encryption for all database storage
 - **In Transit**: TLS 1.3 for all API communications
 - **Application Level**: Field-level encryption for PII data
@@ -569,14 +523,12 @@ CREATE TABLE audit_log (
 ## 3. Performance Requirements
 
 ### 3.1 Response Time Targets
-
 - **Patient Data Query**: <50ms (99th percentile)
 - **Trend Analysis**: <200ms for 1-year dataset
 - **Data Ingestion**: <100ms per blood test record
 - **FHIR Resource Validation**: <25ms per resource
 
 ### 3.2 Throughput Requirements
-
 - **Concurrent Users**: 1,000+ healthcare providers
 - **Data Ingestion Rate**: 10,000+ blood tests per minute
 - **API Requests**: 100,000+ requests per hour
@@ -608,7 +560,6 @@ SELECT add_retention_policy('blood_tests', INTERVAL '7 years');
 ### 4.1 FHIR Compliance
 
 #### 4.1.1 Supported Resources
-
 - **Patient**: Demographics and identifiers
 - **Observation**: Blood test results with LOINC codes
 - **DiagnosticReport**: Grouped test results and interpretations
@@ -737,14 +688,12 @@ def map_to_loinc(test_name, specimen_type, method=None):
 ### 5.1 Key Metrics
 
 #### 5.1.1 System Health Metrics
-
 - **Uptime**: Target 99.9% availability
 - **Response Time**: P50, P95, P99 percentiles
 - **Error Rate**: <0.1% for API requests
 - **Database Performance**: Query execution times, connection pool usage
 
 #### 5.1.2 Business Metrics
-
 - **Data Quality**: LOINC mapping accuracy, validation error rates
 - **User Adoption**: Active users, API usage patterns
 - **Clinical Impact**: Trend detection effectiveness, alert accuracy
@@ -779,7 +728,6 @@ alerts:
 ### 6.1 Environment Configuration
 
 #### 6.1.1 Production Environment
-
 - **Compute**: Supabase Pro with dedicated resources
 - **Database**: PostgreSQL with TimescaleDB, 4 CPU / 16GB RAM minimum
 - **Storage**: 1TB SSD with automatic scaling
@@ -787,7 +735,6 @@ alerts:
 - **Monitoring**: Comprehensive logging and metrics collection
 
 #### 6.1.2 Staging Environment
-
 - **Purpose**: Pre-production testing and validation
 - **Configuration**: Scaled-down version of production
 - **Data**: Anonymized production data subset
@@ -854,5 +801,4 @@ CREATE TRIGGER blood_test_validation
     FOR EACH ROW EXECUTE FUNCTION validate_blood_test_data();
 ```
 
-This comprehensive technical specification provides the foundation for implementing a robust, scalable, and compliant 
-blood test analysis system using modern healthcare standards and cloud-native technologies.
+This comprehensive technical specification provides the foundation for implementing a robust, scalable, and compliant blood test analysis system using modern healthcare standards and cloud-native technologies.

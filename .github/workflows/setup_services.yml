@@ -1,0 +1,77 @@
+name: Setup Supabase and Perplexity
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/setup_services.yml'
+      - 'supabase/**'
+      - 'src/services/**'
+
+env:
+  NODE_VERSION: '20'
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL || 'https://your-project-ref.supabase.co' }}
+  SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY || 'your-anon-key' }}
+  PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+
+jobs:
+  setup-services:
+    name: Setup Services
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Setup Supabase
+      - name: Install Supabase CLI
+        run: |
+          npm install -g supabase@latest
+          supabase --version
+
+      - name: Login to Supabase
+        run: |
+          echo ${{ secrets.SUPABASE_ACCESS_TOKEN }} | supabase login
+
+      - name: Link Supabase project
+        working-directory: ./supabase
+        run: |
+          supabase link --project-ref ${{ secrets.SUPABASE_PROJECT_REF || 'your-project-ref' }}
+          supabase db pull
+
+      # Setup Perplexity
+      - name: Create environment file
+        run: |
+          echo "PERPLEXITY_API_KEY=$PERPLEXITY_API_KEY" > .env
+          echo "SUPABASE_URL=$SUPABASE_URL" >> .env
+          echo "SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY" >> .env
+
+      # Run tests to verify setup
+      - name: Run tests
+        run: npm test
+        env:
+          NODE_ENV: test
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          SUPABASE_URL: ${{ env.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ env.SUPABASE_ANON_KEY }}
+
+      # Optional: Deploy to Vercel/Netlify if needed
+      - name: Deploy to Vercel
+        if: success() && github.ref == 'refs/heads/main'
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
+          vercel-args: '--prod'

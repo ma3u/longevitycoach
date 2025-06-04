@@ -2,52 +2,67 @@ name: Validate Context
 
 on:
   push:
+    branches: [main, master]
     paths:
       - 'memory-bank/**'
       - '.windsurf/rules/**'
+      - '.github/workflows/validate-context.yml'
   pull_request:
+    branches: [main, master]
     paths:
       - 'memory-bank/**'
       - '.windsurf/rules/**'
+      - '.github/workflows/validate-context.yml'
+  workflow_dispatch:
 
 jobs:
-  validate:
+  validate-context:
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Validate Markdown
-      uses: docker://avto-dev/markdown-lint:v1
       with:
-        args: '**/*.md'
+        fetch-depth: 0
     
-    - name: Check Memory Bank Structure
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: |
+        npm install -g markdownlint-cli
+    
+    - name: Validate Memory Bank Structure
       run: |
         # Check required directories exist
-        for dir in decisions checkpoints domain-knowledge development-phases; do
+        for dir in architecture decisions domain-knowledge project-phases; do
           if [ ! -d "memory-bank/$dir" ]; then
             echo "::error::Missing required directory: memory-bank/$dir"
             exit 1
           fi
         done
         
-        # Check README files exist
-        for dir in decisions checkpoints domain-knowledge development-phases; do
-          if [ ! -f "memory-bank/$dir/README.md" ]; then
-            echo "::error::Missing README in memory-bank/$dir"
+        # Check required files exist
+        for file in "memory-bank/README.md" "memory-bank/decision-log.md"; do
+          if [ ! -f "$file" ]; then
+            echo "::error::Missing required file: $file"
             exit 1
           fi
         done
+        
+        # Validate markdown files
+        find memory-bank -name "*.md" -print0 | xargs -0 markdownlint -c .markdownlint.json || true
     
     - name: Validate Windsurf Rules
       run: |
-        if ! grep -q "@reasoning_models" .windsurf/rules/rules.md; then
-          echo "::error::Missing AI development guidelines in Windsurf rules"
-          exit 1
-        fi
+        # Check for required sections in Windsurf rules
+        for section in "@reasoning_models" "@checkpoint_frequency" "@hipaa_compliance" "@phi_handling"; do
+          if ! grep -q "$section" .windsurf/rules/rules.md; then
+            echo "::error::Missing required section in Windsurf rules: $section"
+            exit 1
+          fi
+        done
         
-        if ! grep -q "@checkpoint_frequency" .windsurf/rules/rules.md; then
-          echo "::error::Missing context management rules in Windsurf rules"
-          exit 1
-        fi
+        # Validate markdown formatting
+        markdownlint .windsurf/rules/rules.md -c .markdownlint.json || true

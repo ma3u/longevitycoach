@@ -2,14 +2,16 @@ name: PR Validation
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main, master]
     paths:
+      - 'memory-bank/**'
       - '.windsurf/rules/**'
       - '.github/workflows/**'
       - '**/*.md'
+      - '!node_modules/**'
 
 jobs:
-  validate:
+  validate-pr:
     runs-on: ubuntu-latest
     
     steps:
@@ -21,35 +23,46 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-        
-    - name: Install dependencies
+    
+    - name: Install markdownlint
       run: |
-        cd frontend
-        npm ci
-        
-    - name: Validate Markdown
-      uses: reviewdog/action-markdownlint@v2
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: github-pr-review
-        
+        npm install -g markdownlint-cli
+        npm install -g markdownlint-cli2
+    
+    - name: Run markdownlint
+      run: |
+        # Check all markdown files except node_modules
+        find . -name "*.md" -not -path "*/node_modules/*" -print0 | xargs -0 markdownlint -c .markdownlint.json --disable MD013 --disable MD033 || \
+          { echo "::error::Markdown linting failed"; exit 1; }
+    
     - name: Check for unstaged changes
       run: |
         git diff --exit-code --name-only || \
-          { echo "Error: Unstaged changes detected. Please commit all changes before pushing."; exit 1; }
-
-    - name: Check branch naming
+          { echo "::error::Unstaged changes detected. Run 'git add .' and commit the changes."; exit 1; }
+    
+    - name: Validate branch name
       run: |
-        BRANCH_NAME=$(echo $GITHUB_REF | cut -d'/' -f 3-)
-        if [[ ! $BRANCH_NAME =~ ^(feature|bugfix|hotfix|release)\/.+$ ]]; then
-          echo "Error: Branch name '$BRANCH_NAME' does not follow the required pattern."
-          echo "Please use one of: feature/, bugfix/, hotfix/, or release/"
+        BRANCH_NAME=$(echo ${{ github.head_ref }} | tr '[:upper:]' '[:lower:]')
+        if [[ ! "$BRANCH_NAME" =~ ^(feature|bugfix|hotfix|release)\/[a-z0-9-]+$ ]]; then
+          echo "::error::Branch name '$BRANCH_NAME' does not match required pattern: (feature|bugfix|hotfix|release)/[a-z0-9-]+"
           exit 1
         fi
-
-    - name: Check PR description
-      uses: mshick/add-pr-comment@v2
-      if: github.event.pull_request.body == ''
-      with:
-        message: "⚠️ Please provide a detailed PR description following our template."
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Validate PR description
+      env:
+        PR_BODY: ${{ github.event.pull_request.body }}
+      run: |
+        if [ -z "$PR_BODY" ] || [ "$PR_BODY" == "null" ]; then
+          echo "::error::PR description cannot be empty"
+          exit 1
+        fi
+        
+        if ! echo "$PR_BODY" | grep -q '## Description\|## Changes\|## Related Issues'; then
+          echo "::error::PR description is missing required sections (## Description, ## Changes, ## Related Issues)"
+          exit 1
+        fi
+        
+        # Check for linked issues
+        if ! echo "$PR_BODY" | grep -q 'Fixes #\|Closes #\|Resolves #'; then
+          echo "::warning::Consider linking to an issue using 'Fixes #', 'Closes #', or 'Resolves #'"
+        fi

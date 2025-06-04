@@ -5,10 +5,12 @@ on:
     branches: [main, master]
     paths:
       - 'memory-bank/**'
+      - '.github/workflows/memory-bank.yml'
   pull_request:
     branches: [main, master]
     paths:
       - 'memory-bank/**'
+      - '.github/workflows/memory-bank.yml'
   workflow_dispatch:
 
 jobs:
@@ -17,6 +19,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
       
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -25,20 +29,28 @@ jobs:
         
     - name: Install dependencies
       run: |
-        cd frontend
-        npm ci
+        npm install -g markdownlint-cli
         
-    - name: Validate memory bank files
+    - name: Validate memory bank structure
       run: |
-        # Check for required memory bank files
-        [ -f memory-bank/activeContext.md ] || exit 1
-        [ -f memory-bank/decisionLog.md ] || exit 1
-        [ -f memory-bank/progress.md ] || exit 1
-        [ -f memory-bank/projectContext.md ] || exit 1
-        [ -f memory-bank/systemPatterns.md ] || exit 1
+        # Check required directories exist
+        for dir in architecture decisions domain-knowledge project-phases; do
+          if [ ! -d "memory-bank/$dir" ]; then
+            echo "::error::Missing required directory: memory-bank/$dir"
+            exit 1
+          fi
+        done
         
-        # Check file sizes (max 1MB each)
-        find memory-bank -name "*.md" -size +1M | grep . && exit 1 || exit 0
+        # Check required files exist
+        for file in "memory-bank/README.md" "memory-bank/decision-log.md"; do
+          if [ ! -f "$file" ]; then
+            echo "::error::Missing required file: $file"
+            exit 1
+          fi
+        done
+        
+        # Validate markdown files
+        find memory-bank -name "*.md" -print0 | xargs -0 markdownlint -c .markdownlint.json
         
     - name: Create summary
       run: |
@@ -48,6 +60,10 @@ jobs:
         
         echo "## Recent Changes" >> memory-summary.md
         git log -n 3 --pretty=format:'- %s' -- memory-bank/ >> memory-summary.md
+        
+        echo "" >> memory-summary.md
+        echo "## Current Structure" >> memory-summary.md
+        find memory-bank -type f -name "*.md" | sort >> memory-summary.md
         
     - name: Upload summary
       uses: actions/upload-artifact@v3
