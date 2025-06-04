@@ -2,7 +2,7 @@
 class PresentationApp {
     constructor() {
         this.currentSlide = 1;
-        this.totalSlides = 19;
+        this.totalSlides = 20;
         this.slides = document.querySelectorAll('.slide');
         this.isMenuOpen = false;
         this.isTransitioning = false;
