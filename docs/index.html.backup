@@ -232,7 +232,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="/" class="logo">
-                    <img src="/images/logo.png" alt="Longevity Coach Logo" style="height: 40px; margin-right: 10px;">
+                    <i class="fas fa-heartbeat"></i>
                     Longevity Coach
                 </a>
                 <ul class="nav-links">
@@ -240,65 +240,21 @@
                     <li><a href="/journey/">My Journey</a></li>
                     <li><a href="/reference-values/">Reference Values</a></li>
                     <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <img src="/images/logo.png" alt="Longevity AI Coach" style="max-width: 200px; height: auto; margin-bottom: 1.5rem;">
-                <h1>AI-Powered Longevity Coaching</h1>
-                <p class="subtitle" style="font-size: 1.25rem; color: var(--gray); max-width: 800px; margin: 0 auto 2rem;">
-                    Personalized health optimization based on scientific research and my personal journey to longevity.
-                </p>
-                <div style="margin-top: 2rem;">
-                    <a href="/journey/" class="btn btn-primary">My Personal Journey</a>
-                    <a href="#contact" class="btn btn-outline" style="margin-left: 1rem;">Get Early Access</a>
-                </div>
-            </div>
-            
-            <div class="ai-coach-highlight" style="background: rgba(79, 70, 229, 0.1); border-radius: 12px; padding: 2rem; margin: 3rem 0; text-align: left;">
-                <h2 style="color: var(--primary); margin-top: 0;">Introducing the Longevity AI Coach</h2>
-                <p>I'm developing an advanced AI-powered longevity coach that combines my personal health journey with expert knowledge in longevity science. This intelligent system will provide:</p>
-                <ul style="margin: 1rem 0 1.5rem 1.5rem;">
-                    <li>Personalized health recommendations based on your biomarkers</li>
-                    <li>Educational tools powered by specialized AI agents</li>
-                    <li>Evidence-based strategies for healthspan extension</li>
-                    <li>Continuous learning from the latest longevity research</li>
-                </ul>
-                <p>My journey has shown me the power of data-driven health optimization, and I'm excited to make this knowledge accessible through intelligent technology.</p>
-            </div>
-        </div>
-    </section>
+            /* Footer */
+            footer {
+                background-color: var(--dark);
+                color: white;
+                padding: 3rem 0;
+                margin-top: 4rem;
+            }
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="/" class="logo" style="color: white; margin-bottom: 1rem; font-size: 1.5rem;">
-                    <img src="/images/logo.png" alt="Longevity Coach Logo" style="height: 30px; margin-right: 10px; vertical-align: middle;">
-                    Longevity Coach
-                </a>
-                <p style="color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto 1.5rem;">
-                    Empowering you to optimize your health and longevity through data-driven insights and AI-powered coaching.
-                </p>
-                <div class="footer-links">
-                    <a href="/">Home</a>
-                    <a href="/journey/">My Journey</a>
-                    <a href="/reference-values/">Reference Values</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <p class="copyright" style="color: rgba(255, 255, 255, 0.6); margin-top: 2rem; font-size: 0.875rem;">
-                    &copy; 2025 Longevity Coach. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- My Journey Section -->
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
     <section id="my-journey" class="section">
         <div class="container">
             <div class="section-title">
@@ -640,76 +596,51 @@
         <div class="container">
             <div class="section-title">
                 <h2>Get In Touch</h2>
-                <p>Have questions or want to connect? Reach out to me directly or use the contact form below.</p>
+                <p>Have questions or want to connect? Fill out the form below to reach out to me!</p>
             </div>
-            
-            <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
-                <!-- Contact Info -->
-                <div class="contact-info" style="flex: 1; min-width: 300px;">
-                    <div class="profile-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); text-align: center; margin-bottom: 2rem;">
-                        <div class="profile-image" style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 4px solid #4F46E5;">
-                            <img src="/images/photo_ma3u.webp" alt="Ma3u" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <h3 style="margin-bottom: 1rem; color: #1F2937;">Ma3u</h3>
-                        <p style="color: #6B7280; margin-bottom: 1.5rem;">Longevity Enthusiast & Developer</p>
-                        <div class="contact-details" style="text-align: left; margin-bottom: 1.5rem;">
-                            <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 1rem;">
-                                <i class="fas fa-envelope" style="color: #4F46E5; margin-right: 1rem; width: 24px; text-align: center;"></i>
-                                <a href="mailto:info@mabu.red" style="color: #4B5563; text-decoration: none;">info@mabu.red</a>
-                            </div>
-                            <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 1rem;">
-                                <i class="fas fa-phone" style="color: #4F46E5; margin-right: 1rem; width: 24px; text-align: center;"></i>
-                                <a href="tel:+491607467106" style="color: #4B5563; text-decoration: none;">+49 160 7467106</a>
-                            </div>
-                        </div>
-                        <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
-                            <a href="https://www.linkedin.com/in/mbuchhorn/" target="_blank" rel="noopener noreferrer" style="color: #4B5563; font-size: 1.5rem; transition: color 0.3s ease;">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://bsky.app/profile/m43u.bsky.social" target="_blank" rel="noopener noreferrer" style="color: #4B5563; font-size: 1.5rem; transition: color 0.3s ease;">
-                                <i class="fab fa-bluetooth-b"></i>
-                            </a>
-                            <a href="https://github.com/ma3u" target="_blank" rel="noopener noreferrer" style="color: #4B5563; font-size: 1.5rem; transition: color 0.3s ease;">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+            <div class="contact-form">
+                <form id="contact-form" action="https://formspree.io/f/xgegqjww" method="POST" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" class="form-control" required minlength="2" maxlength="100">
+                        <div class="error-message" id="name-error"></div>
                     </div>
-                </div>
-                
-                <!-- Contact Form -->
-                <div class="contact-form" style="flex: 1; min-width: 300px;">
-                    <form id="contact-form" action="https://formspree.io/f/xgegqjww" method="POST" novalidate style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" required minlength="2" maxlength="100" style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.3s ease;">
-                            <div class="error-message" id="name-error" style="color: #EF4444; font-size: 0.875rem; margin-top: 0.5rem; display: none;"></div>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Email *</label>
-                            <input type="email" id="email" name="email" class="form-control" required style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.3s ease;">
-                            <div class="error-message" id="email-error" style="color: #EF4444; font-size: 0.875rem; margin-top: 0.5rem; display: none;"></div>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" maxlength="200" style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.3s ease;">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Message *</label>
-                            <textarea id="message" name="message" class="form-control" rows="5" required minlength="10" maxlength="2000" style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; font-size: 1rem; resize: vertical; min-height: 120px; transition: border-color 0.3s ease;"></textarea>
-                            <div class="error-message" id="message-error" style="color: #EF4444; font-size: 0.875rem; margin-top: 0.5rem; display: none;"></div>
-                        </div>
-                        <div class="form-group form-check" style="margin-bottom: 1.5rem;">
-                            <input type="checkbox" class="form-check-input" id="privacy" name="privacy" required style="margin-right: 0.5rem;">
-                            <label class="form-check-label" for="privacy" style="color: #4B5563; font-size: 0.875rem;">I accept the <a href="/privacy" target="_blank" style="color: #4F46E5; text-decoration: none; font-weight: 500;">Privacy Policy</a> *</label>
-                            <div class="error-message" id="privacy-error" style="color: #EF4444; font-size: 0.875rem; margin-top: 0.5rem; display: none;"></div>
-                        </div>
-                        <div id="form-status" class="form-status" style="margin-bottom: 1rem; padding: 0.75rem; border-radius: 0.5rem; display: none;"></div>
-                        <button type="submit" class="btn btn-primary" id="submit-btn" style="background-color: #4F46E5; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 500; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background-color 0.3s ease;">
-                            <span class="btn-text">Send Message</span>
-                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" style="width: 1rem; height: 1rem; border-width: 0.15em;"></span>
-                        </button>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                        <div class="error-message" id="email-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-control" maxlength="200">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required minlength="10" maxlength="2000"></textarea>
+                        <div class="error-message" id="message-error"></div>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="privacy" name="privacy" required>
+                        <label class="form-check-label" for="privacy">I accept the <a href="/privacy" target="_blank">Privacy Policy</a> *</label>
+                        <div class="error-message" id="privacy-error"></div>
+                    </div>
+                    <div id="form-status" class="form-status"></div>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/ma3u" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/ma3u" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://github.com/ma3u" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </section>

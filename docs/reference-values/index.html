@@ -4,7 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reference Values - Longevity Coach</title>
+    <meta name="description" content="Comprehensive reference values for health markers and longevity biomarkers">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
     <style>
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4F46E5;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #6B7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #4F46E5;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1F2937;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo .logo {
+            color: white;
+            font-size: 1.5rem;
+            justify-content: center;
+        }
+        
+        .footer-logo .logo img {
+            height: 30px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
@@ -53,10 +162,39 @@
                 overflow-x: auto;
             }
         }
+            .reference-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Reference Values</h1>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="Longevity Coach Logo">
+                Longevity Coach
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/journey/">My Journey</a></li>
+                <li><a href="/reference-values/" class="active">Reference Values</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="reference-content">
+        <h1>Reference Values</h1>
     <p>Comprehensive reference values for health markers, based on the latest research and expert recommendations.</p>
     
     <div class="note">
@@ -183,5 +321,37 @@
     <div class="note">
         <p><strong>Disclaimer:</strong> These reference ranges are based on general guidelines and may vary between laboratories. Always consult with a healthcare provider for interpretation of your specific lab results in the context of your overall health.</p>
     </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="/" class="logo">
+                    <img src="/images/logo.png" alt="Longevity Coach Logo">
+                    Longevity Coach
+                </a>
+            </div>
+            <p style="color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto 1.5rem;">
+                Empowering you to optimize your health and longevity through data-driven insights and AI-powered coaching.
+            </p>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/journey/">My Journey</a>
+                <a href="/reference-values/">Reference Values</a>
+                <a href="/#contact">Contact</a>
+            </div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/cookies">Cookie Policy</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Longevity Coach. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
 </body>
 </html>
