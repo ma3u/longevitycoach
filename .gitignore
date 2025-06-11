@@ -40,6 +40,9 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# Backup files
+*.bak
+
 # Memory bank files
 # Ignore all markdown files in memory-bank by default
 /memory-bank/*.md

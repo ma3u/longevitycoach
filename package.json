@@ -1,0 +1,33 @@
+{
+  "name": "longevitycoach-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "prepare": "cd frontend && npm install && cd ..",
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm start",
+    "lint": "cd frontend && npm run lint",
+    "format": "cd frontend && npm run format",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.0"
+  },
+  "lint-staged": {
+    "frontend/**/*.{js,jsx,ts,tsx}": [
+      "cd frontend && npm run lint:fix",
+      "prettier --write"
+    ],
+    "frontend/**/*.{json,md,mdx,html,css}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx,json,md,mdx,html,css}": [
+      "prettier --write --ignore-unknown"
+    ]
+  }
+}

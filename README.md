@@ -2,6 +2,43 @@
 
 A comprehensive health and wellness platform focused on longevity and preventive care.
 
+## Project Status
+
+### Current State (June 2025)
+
+- **Active Development**: Currently in initial development phase (Sprint 1)
+- **Core Infrastructure**: In progress
+- **CI/CD Pipeline**: Under development
+- **Documentation**: Being established
+
+### Key Metrics
+
+| Category | Status |
+|----------|--------|
+| **Sprint Progress** | Sprint 1 in progress |
+| **Open Issues** | 11 |
+| **Closed Issues** | 0 |
+| **Test Coverage** | TBD |
+| **Latest Release** | Pre-release |
+
+### Recent Updates
+
+- **Project Structure**: Initialized with Next.js and TypeScript
+- **Memory Bank**: Basic implementation in progress
+- **Documentation**: Initial setup complete
+- **CI/CD**: Pipeline configuration started
+
+### Next Steps
+
+1. Complete Memory Bank system implementation
+2. Set up automated testing
+3. Implement initial static pages
+4. Configure CI/CD pipeline
+5. Enhance documentation
+
+---
+
+
 ## Features
 
 - Blood test tracking and analysis
