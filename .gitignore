@@ -41,6 +41,23 @@ yarn-error.log*
 .env.production.local
 
 # Memory bank files
+# Ignore all markdown files in memory-bank by default
 /memory-bank/*.md
+# Then re-include specific directories and files we want to track
 !/memory-bank/README.md
+!/memory-bank/decisions/
+!/memory-bank/architecture/
+!/memory-bank/planning/
+!/memory-bank/development-phases/
+!/memory-bank/domain-knowledge/
+!/memory-bank/project-phases/
+# Explicitly include specific root MD files we want to track
+!/memory-bank/activeContext.md
+!/memory-bank/decision-log.md
+!/memory-bank/project-vision.md
+!/memory-bank/projectContext.md
 !/memory-bank/systemPatterns.md
+# Ignore backup files
+*.bak
+*.backup
+*~
