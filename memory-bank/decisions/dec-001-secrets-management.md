@@ -1,3 +1,14 @@
+---
+title: "Sec 001 Secrets Management"
+description: "Decisions documentation"
+created: 2025-06-04
+updated: 2025-06-04
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # SEC-001: Secrets Management with 1Password and GitHub Secrets
 
 ## Status
@@ -119,7 +130,7 @@ DATABASE_URL=postgres://user:password@localhost:5432/db
 - Dependence on 1Password service availability
 
 ## Related Decisions
-- [DB-001: TimescaleDB Selection](./DB-001-timescaledb-selection.md)
+- [DEC-002: TimescaleDB Selection](./dec-001-timescaledb-selection.md)
 
 ## Date
 2025-06-04

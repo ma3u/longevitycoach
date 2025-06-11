@@ -1,3 +1,14 @@
+---
+title: "Arch 001 Mcp Architecture"
+description: "Decisions documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # ARCH-001: MCP Architecture Selection
 
 ## Status
@@ -28,8 +39,8 @@ Implement FastMCP with Server-Sent Events (SSE) transport for five specialized h
 - Potential challenges in maintaining data consistency across agents
 
 ## Related Decisions
-- [UI/001: Component Library Selection](./UI-001-component-library.md)
-- [SEC/001: Authentication Strategy](./SEC-001-authentication.md)
+- [DEC-009: Component Library Selection](./dec-009-component-library-selection.md)
+- [DEC-010: Authentication Strategy](./dec-010-authentication-strategy.md)
 
 ## Date
 2025-06-02

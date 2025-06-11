@@ -1,3 +1,14 @@
+---
+title: "Db 001 Timescaledb Selection"
+description: "Decisions documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # DB-001: TimescaleDB for Time-Series Data
 
 ## Status
@@ -29,8 +40,8 @@ Use TimescaleDB extension on top of PostgreSQL for all time-series health data.
 - Slightly higher memory usage
 
 ## Related Decisions
-- [ARCH-001: MCP Architecture](./ARCH-001-mcp-architecture.md)
-- [SEC-001: Data Encryption](./SEC-001-data-encryption.md)
+- [DEC-001: MCP Architecture](./dec-001-mcp-architecture.md)
+- [DEC-011: Data Encryption](./dec-011-data-encryption.md)
 
 ## Date
 2025-06-02

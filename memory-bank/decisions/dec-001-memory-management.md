@@ -1,3 +1,14 @@
+---
+title: "Mem 001 Memory Management"
+description: "Decisions documentation"
+created: 2025-06-11
+updated: 2025-06-11
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Memory Management System
 
 ## Overview

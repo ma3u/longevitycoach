@@ -1,3 +1,14 @@
+---
+title: "Dep 002 Development Deployment Lifecycle"
+description: "Decisions documentation"
+created: 2025-06-04
+updated: 2025-06-04
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # DEP-002: Development and Deployment Lifecycle
 
 ## Decision
