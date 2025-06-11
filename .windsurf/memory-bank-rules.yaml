@@ -1,0 +1,60 @@
+# Windsurf Memory Bank Management Rules
+# Version: 1.0.0
+# Last Updated: 2025-06-11
+
+rules:
+  - name: Memory Bank File Structure
+    description: Ensure consistent memory bank file structure
+    paths:
+      - memory-bank/decisions/*.md
+      - memory-bank/planning/*.md
+      - memory-bank/architecture/*.md
+      - memory-bank/domain-knowledge/**/*.md
+      - memory-bank/development-phases/**/*.md
+      - memory-bank/project-phases/**/*.md
+    required_files:
+      - memory-bank/README.md
+      - memory-bank/decision-log.md
+      - memory-bank/activeContext.md
+      - memory-bank/projectContext.md
+      - memory-bank/project-vision.md
+
+  - name: Memory Bank File Naming
+    description: Enforce consistent naming conventions
+    pattern: '^[A-Z]+-\d{3}-[a-z0-9-]+\.md$'
+    exclude:
+      - memory-bank/README.md
+      - memory-bank/decision-log.md
+      - memory-bank/activeContext.md
+      - memory-bank/projectContext.md
+      - memory-bank/project-vision.md
+
+  - name: Required Frontmatter
+    description: Ensure all memory bank files have required frontmatter
+    frontmatter_required: true
+    frontmatter_fields:
+      - title
+      - description
+      - created
+      - last_updated
+      - status
+    exclude:
+      - memory-bank/README.md
+
+  - name: Automated Backups
+    description: Create automated backups of memory bank files
+    backup:
+      enabled: true
+      location: .memory-bank-backups
+      retention_days: 30
+      schedule: daily
+
+  - name: Validation Checks
+    description: Run validation checks on memory bank files
+    validate:
+      - markdown_lint
+      - dead_links
+      - frontmatter
+      - yaml_syntax
+    on_push: true
+    on_pr: true
