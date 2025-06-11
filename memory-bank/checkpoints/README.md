@@ -1,3 +1,14 @@
+---
+title: "Readme"
+description: "Checkpoints documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Development Checkpoints
 
 This directory contains versioned checkpoints of the project's state at key milestones.

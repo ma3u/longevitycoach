@@ -1,3 +1,14 @@
+---
+title: "Project Vision"
+description: " documentation"
+created: 2025-06-11
+updated: 2025-06-11
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Longevity-Focused Blood Analysis Platform
 
 ## Vision Statement

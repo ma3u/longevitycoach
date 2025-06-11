@@ -1,3 +1,14 @@
+---
+title: "Readme"
+description: "Project-phases > Phase-1 documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Phase 1: MVP Frontend Development with MCP Server Architecture
 
 ## Timeline: Weeks 1-4

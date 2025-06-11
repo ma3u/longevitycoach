@@ -1,3 +1,14 @@
+---
+title: "Readme"
+description: "Project-phases documentation"
+created: 2025-06-04
+updated: 2025-06-04
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Project Phases
 
 This directory tracks the different phases of the Longevity-Focused Blood Analysis Platform development.

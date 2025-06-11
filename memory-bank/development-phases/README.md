@@ -1,3 +1,14 @@
+---
+title: "Readme"
+description: "Development-phases documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Development Phases
 
 This directory tracks the project's development phases and their respective goals.

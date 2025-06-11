@@ -1,3 +1,14 @@
+---
+title: "Checklist"
+description: "Development-phases documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Development Checklist
 
 ## Phase 1: MVP Frontend Development (Weeks 1-4)
