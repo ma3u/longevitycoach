@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Fix markdown linting issues in systemPatterns.md
-FILE="memory-bank/systemPatterns.md"
+# Fix markdown linting issues in system-patterns.md
+FILE="memory-bank/system-patterns.md"
 TEMP_FILE="${FILE}.tmp"
 
 # Create a backup

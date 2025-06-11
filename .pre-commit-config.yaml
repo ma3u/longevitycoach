@@ -1,0 +1,12 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: validate-memory-bank
+        name: Validate Memory Bank
+        entry: node scripts/validate-memory-bank.js
+        language: node
+        types: [markdown]
+        files: ^memory-bank/.*\.md$
+        pass_filenames: false
+        verbose: true
+        always_run: true

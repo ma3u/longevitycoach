@@ -2,17 +2,13 @@
   "name": "longevitycoach-monorepo",
   "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "frontend"
-  ],
   "scripts": {
-    "prepare": "cd frontend && npm install && cd ..",
     "dev": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
     "start": "cd frontend && npm start",
     "lint": "cd frontend && npm run lint",
     "format": "cd frontend && npm run format",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "husky": "^8.0.3",
@@ -28,6 +24,9 @@
     ],
     "*.{js,jsx,ts,tsx,json,md,mdx,html,css}": [
       "prettier --write --ignore-unknown"
+    ],
+    "memory-bank/**/*.md": [
+      "node scripts/validate-memory-bank.js --staged"
     ]
   }
 }

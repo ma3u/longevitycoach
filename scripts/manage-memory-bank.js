@@ -6,11 +6,11 @@ const { execSync } = require('child_process');
 
 const MEMORY_BANK_DIR = path.join(__dirname, '../memory-bank');
 const FILES = {
-  active: 'activeContext.md',
-  decisions: 'decisionLog.md',
+  active: 'active-context.md',
+  decisions: 'decision-log.md',
   progress: 'progress.md',
-  project: 'projectContext.md',
-  system: 'systemPatterns.md'
+  project: 'project-context.md',
+  system: 'system-patterns.md'
 };
 
 // Ensure memory bank directory exists
