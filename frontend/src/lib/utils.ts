@@ -45,7 +45,7 @@ export function calculatePercentage(value: number, total: number): number {
 }
 
 // Debounce function
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
@@ -61,7 +61,7 @@ export function debounce<T extends (...args: any[]) => any>(
 }
 
 // Check if a value is empty
-export function isEmpty(value: any): boolean {
+export function isEmpty(value: unknown): boolean {
   if (value === null || value === undefined) return true;
   if (typeof value === 'string' && value.trim() === '') return true;
   if (Array.isArray(value) && value.length === 0) return true;
@@ -70,7 +70,7 @@ export function isEmpty(value: any): boolean {
 }
 
 // Convert object to query string
-export function objectToQueryString(obj: Record<string, any>): string {
+export function objectToQueryString(obj: Record<string, unknown>): string {
   const params = new URLSearchParams();
   Object.entries(obj).forEach(([key, value]) => {
     if (value !== undefined && value !== null) {
