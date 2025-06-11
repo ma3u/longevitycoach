@@ -166,38 +166,412 @@
 
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 3rem 0;
-            margin-top: 4rem;
+            background-color: #111827;
+            color: #ffffff;
+            padding: 4rem 0 1.5rem;
+            font-size: 0.9375rem;
+            line-height: 1.7;
         }
 
         .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 320px;
         }
 
         .footer-logo {
+            display: flex;
+            align-items: center;
+            color: white;
             font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            text-decoration: none;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-logo img {
+            height: 36px;
+            margin-right: 0.75rem;
+        }
+
+        .footer-tagline {
+            color: #9CA3AF;
+            margin: 1rem 0 1.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-links h4,
+        .footer-legal h4,
+        .footer-connect h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links ul,
+        .footer-legal ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li,
+        .footer-legal li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a,
+        .footer-legal a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 0.25rem 0;
+        }
+
+        .footer-links a:hover,
+        .footer-legal a:hover {
             color: white;
         }
 
-        .footer-links {
+        .social-links {
             display: flex;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-            flex-wrap: wrap;
-            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .contact-info p {
+            margin: 0.75rem 0;
+            color: #9CA3AF;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-info a {
+            color: #9CA3AF;
             text-decoration: none;
             transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        .contact-info i {
+            width: 20px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            align-self: start;
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .profile-image {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #4F46E5;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-status {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 16px;
+            height: 16px;
+            background: #10B981;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+
+        .profile-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1F2937;
+        }
+
+        .profile-title {
+            color: #6B7280;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #EEF2FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: #4F46E5;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-details span:first-child {
+            color: #6B7280;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details a {
+            color: #1F2937;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: #4F46E5;
+        }
+
+        .contact-form-wrapper {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin: 0 -0.75rem;
+        }
+
+        .form-col {
+            flex: 1;
+            min-width: 0;
+            padding: 0 0.75rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #E5E7EB;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #F9FAFB;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #4F46E5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            background-color: white;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .error-message {
+            color: #EF4444;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .form-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #4F46E5;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #4338CA;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+        }
+
+        .form-status {
+            font-size: 0.9375rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            display: none;
+            flex: 1;
+            text-align: center;
+        }
+
+        .form-status.success {
+            background-color: #ECFDF5;
+            color: #065F46;
+            border: 1px solid #A7F3D0;
+            display: block;
+        }
+
+        .form-status.error {
+            background-color: #FEF2F2;
+            color: #B91C1C;
+            border: 1px solid #FCA5A5;
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #F3F4F6;
+            color: #4B5563;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #4F46E5;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin: 0;
+            }
+
+            .form-col {
+                padding: 0;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-footer {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn-primary {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         .footer-links a:hover {
@@ -231,14 +605,14 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="/" class="logo">
-                    <img src="/images/logo.png" alt="Longevity Coach Logo" style="height: 40px; margin-right: 10px;">
+                <a href="./" class="logo">
+                    <img src="images/logo.png" alt="Longevity Coach Logo" style="height: 40px; margin-right: 10px;">
                     Longevity Coach
                 </a>
                 <ul class="nav-links">
-                    <li><a href="/" class="active">Home</a></li>
-                    <li><a href="/journey/">My Journey</a></li>
-                    <li><a href="/reference-values/">Reference Values</a></li>
+                    <li><a href="./" class="active">Home</a></li>
+                    <li><a href="journey/">My Journey</a></li>
+                    <li><a href="reference-values/">Reference Values</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -249,13 +623,13 @@
     <section class="hero">
         <div class="container">
             <div style="text-align: center; margin-bottom: 3rem;">
-                <img src="/images/logo.png" alt="Longevity AI Coach" style="max-width: 200px; height: auto; margin-bottom: 1.5rem;">
+                <img src="images/logo.png" alt="Longevity AI Coach" style="max-width: 200px; height: auto; margin-bottom: 1.5rem;">
                 <h1>AI-Powered Longevity Coaching</h1>
                 <p class="subtitle" style="font-size: 1.25rem; color: var(--gray); max-width: 800px; margin: 0 auto 2rem;">
                     Personalized health optimization based on scientific research and my personal journey to longevity.
                 </p>
                 <div style="margin-top: 2rem;">
-                    <a href="/journey/" class="btn btn-primary">My Personal Journey</a>
+                    <a href="journey/" class="btn btn-primary">My Personal Journey</a>
                     <a href="#contact" class="btn btn-outline" style="margin-left: 1rem;">Get Early Access</a>
                 </div>
             </div>
@@ -273,30 +647,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="/" class="logo" style="color: white; margin-bottom: 1rem; font-size: 1.5rem;">
-                    <img src="/images/logo.png" alt="Longevity Coach Logo" style="height: 30px; margin-right: 10px; vertical-align: middle;">
-                    Longevity Coach
-                </a>
-                <p style="color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto 1.5rem;">
-                    Empowering you to optimize your health and longevity through data-driven insights and AI-powered coaching.
-                </p>
-                <div class="footer-links">
-                    <a href="/">Home</a>
-                    <a href="/journey/">My Journey</a>
-                    <a href="/reference-values/">Reference Values</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <p class="copyright" style="color: rgba(255, 255, 255, 0.6); margin-top: 2rem; font-size: 0.875rem;">
-                    &copy; 2025 Longevity Coach. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
 
     <!-- My Journey Section -->
     <section id="my-journey" class="section">
@@ -328,7 +678,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="/journey/" class="btn btn-primary">View Full Journey Timeline</a>
+                <a href="journey/" class="btn btn-primary">View Full Journey Timeline</a>
             </div>
         </div>
     </section>
@@ -642,72 +992,99 @@
                 <h2>Get In Touch</h2>
                 <p>Have questions or want to connect? Reach out to me directly or use the contact form below.</p>
             </div>
-            
-            <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+
+            <div class="contact-container">
                 <!-- Contact Info -->
-                <div class="contact-info" style="flex: 1; min-width: 300px;">
-                    <div class="profile-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); text-align: center; margin-bottom: 2rem;">
-                        <div class="profile-image" style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; border: 4px solid #4F46E5;">
-                            <img src="/images/photo_ma3u.webp" alt="Ma3u" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="contact-info-card">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="images/photo_ma3u.webp" alt="Matthias Buchhorn-Roth" class="profile-img">
+                            <div class="profile-status"></div>
                         </div>
-                        <h3 style="margin-bottom: 1rem; color: #1F2937;">Ma3u</h3>
-                        <p style="color: #6B7280; margin-bottom: 1.5rem;">Longevity Enthusiast & Developer</p>
-                        <div class="contact-details" style="text-align: left; margin-bottom: 1.5rem;">
-                            <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 1rem;">
-                                <i class="fas fa-envelope" style="color: #4F46E5; margin-right: 1rem; width: 24px; text-align: center;"></i>
-                                <a href="mailto:info@mabu.red" style="color: #4B5563; text-decoration: none;">info@mabu.red</a>
+                        <h3>Matthias Buchhorn-Roth</h3>
+                        <p class="profile-title">Longevity Enthusiast & Software Engineer</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span>Email Me</span>
+                                    <a href="mailto:info@mabu.red">info@mabu.red</a>
+                                </div>
                             </div>
-                            <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 1rem;">
-                                <i class="fas fa-phone" style="color: #4F46E5; margin-right: 1rem; width: 24px; text-align: center;"></i>
-                                <a href="tel:+491607467106" style="color: #4B5563; text-decoration: none;">+49 160 7467106</a>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span>Call Me</span>
+                                    <a href="tel:+491607467106">+49 160 7467106</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span>Location</span>
+                                    <span>Berlin, Germany</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="social-links" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
-                            <a href="https://www.linkedin.com/in/mbuchhorn/" target="_blank" rel="noopener noreferrer" style="color: #4B5563; font-size: 1.5rem; transition: color 0.3s ease;">
-                                <i class="fab fa-linkedin"></i>
+                        
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/mbuchhorn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://bsky.app/profile/m43u.bsky.social" target="_blank" rel="noopener noreferrer" style="color: #4B5563; font-size: 1.5rem; transition: color 0.3s ease;">
+                            <a href="https://bsky.app/profile/m43u.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
                                 <i class="fab fa-bluetooth-b"></i>
                             </a>
-                            <a href="https://github.com/ma3u" target="_blank" rel="noopener noreferrer" style="color: #4B5563; font-size: 1.5rem; transition: color 0.3s ease;">
+                            <a href="https://github.com/ma3u" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Contact Form -->
-                <div class="contact-form" style="flex: 1; min-width: 300px;">
-                    <form id="contact-form" action="https://formspree.io/f/xgegqjww" method="POST" novalidate style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" required minlength="2" maxlength="100" style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.3s ease;">
-                            <div class="error-message" id="name-error" style="color: #EF4444; font-size: 0.875rem; margin-top: 0.5rem; display: none;"></div>
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" action="https://formspree.io/f/xgegqjww" method="POST" novalidate>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="name">Name *</label>
+                                    <input type="text" id="name" name="name" class="form-control" required minlength="2" maxlength="100">
+                                    <div class="error-message">Please enter your name</div>
+                                </div>
+                                <div class="form-col">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                    <div class="error-message">Please enter a valid email</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Email *</label>
-                            <input type="email" id="email" name="email" class="form-control" required style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.3s ease;">
-                            <div class="error-message" id="email-error" style="color: #EF4444; font-size: 0.875rem; margin-top: 0.5rem; display: none;"></div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
                         </div>
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" maxlength="200" style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.3s ease;">
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" class="form-control" required minlength="10"></textarea>
+                            <div class="error-message">Please enter your message (min 10 chars)</div>
                         </div>
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: #374151;">Message *</label>
-                            <textarea id="message" name="message" class="form-control" rows="5" required minlength="10" maxlength="2000" style="width: 100%; padding: 0.75rem; border: 1px solid #D1D5DB; border-radius: 0.5rem; font-size: 1rem; resize: vertical; min-height: 120px; transition: border-color 0.3s ease;"></textarea>
-                            <div class="error-message" id="message-error" style="color: #EF4444; font-size: 0.875rem; margin-top: 0.5rem; display: none;"></div>
+
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                            <div id="form-status" class="form-status"></div>
                         </div>
-                        <div class="form-group form-check" style="margin-bottom: 1.5rem;">
-                            <input type="checkbox" class="form-check-input" id="privacy" name="privacy" required style="margin-right: 0.5rem;">
-                            <label class="form-check-label" for="privacy" style="color: #4B5563; font-size: 0.875rem;">I accept the <a href="/privacy" target="_blank" style="color: #4F46E5; text-decoration: none; font-weight: 500;">Privacy Policy</a> *</label>
-                            <div class="error-message" id="privacy-error" style="color: #EF4444; font-size: 0.875rem; margin-top: 0.5rem; display: none;"></div>
-                        </div>
-                        <div id="form-status" class="form-status" style="margin-bottom: 1rem; padding: 0.75rem; border-radius: 0.5rem; display: none;"></div>
-                        <button type="submit" class="btn btn-primary" id="submit-btn" style="background-color: #4F46E5; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 500; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background-color 0.3s ease;">
-                            <span class="btn-text">Send Message</span>
-                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" style="width: 1rem; height: 1rem; border-width: 0.15em;"></span>
-                        </button>
                     </form>
                 </div>
             </div>
@@ -718,29 +1095,251 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-heartbeat"></i> Longevity Coach
+                <div class="footer-brand">
+                    <a href="./" class="footer-logo">
+                        <img src="images/logo.png" alt="Longevity Coach">
+                        <span>Longevity Coach</span>
+                    </a>
+                    <p class="footer-tagline">Empowering you to optimize your health and longevity through data-driven insights and AI-powered coaching.</p>
                 </div>
-                <p>Empowering you to optimize your health and longevity through data-driven insights</p>
+
                 <div class="footer-links">
-                    <a href="/">Home</a>
-                    <a href="/journey/">My Journey</a>
-                    <a href="/reference-values/">Reference Values</a>
-                    <a href="#contact">Contact</a>
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="./">Home</a></li>
+                        <li><a href="journey/">My Journey</a></li>
+                        <li><a href="reference-values/">Reference Values</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="footer-links">
-                    <a href="/privacy">Privacy Policy</a>
-                    <a href="/terms">Terms of Service</a>
-                    <a href="/cookies">Cookie Policy</a>
+
+                <div class="footer-legal">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
                 </div>
-                <div class="copyright">
-                    &copy; 2025 Longevity Coach. All rights reserved.
+
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mbuchhorn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://bsky.app/profile/m43u.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+                            <i class="fab fa-bluetooth-b"></i>
+                        </a>
+                        <a href="https://github.com/ma3u" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@mabu.red">info@mabu.red</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+491607467106">+49 160 7467106</a></p>
+                    </div>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Longevity Coach. All rights reserved. <span style="color: #6B7280;">|</span> Made with <i class="fas fa-heart" style="color: #EF4444;"></i> and <i class="fas fa-coffee"></i></p>
             </div>
         </div>
     </footer>
 
-    <script src="js/contact-form.js"></script>
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without page jump
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        location.hash = targetId;
+                    }
+                }
+            });
+        });
+
+        // Form validation and submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            if (!form) return;
+
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const formStatus = document.getElementById('form-status');
+
+            // Show error message for an input
+            function showError(input, message) {
+                const formGroup = input.closest('.form-group') || input.closest('.form-col');
+                const error = formGroup.querySelector('.error-message');
+                if (error) {
+                    error.textContent = message;
+                    error.style.display = 'block';
+                    input.classList.add('error');
+                }
+            }
+
+
+            // Clear error message for an input
+            function clearError(input) {
+                const formGroup = input.closest('.form-group') || input.closest('.form-col');
+                const error = formGroup.querySelector('.error-message');
+                if (error) {
+                    error.textContent = '';
+                    error.style.display = 'none';
+                    input.classList.remove('error');
+                }
+            }
+
+
+            // Validate email format
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            // Form submission handler
+            async function handleSubmit(e) {
+                e.preventDefault();
+                
+                // Reset previous states
+                formStatus.className = 'form-status';
+                formStatus.style.display = 'none';
+                
+                let isValid = true;
+                
+                // Validate name
+                if (!nameInput.value.trim()) {
+                    showError(nameInput, 'Please enter your name');
+                    isValid = false;
+                } else {
+                    clearError(nameInput);
+                }
+                
+                // Validate email
+                if (!emailInput.value.trim()) {
+                    showError(emailInput, 'Please enter your email');
+                    isValid = false;
+                } else if (!isValidEmail(emailInput.value.trim())) {
+                    showError(emailInput, 'Please enter a valid email address');
+                    isValid = false;
+                } else {
+                    clearError(emailInput);
+                }
+                
+                // Validate message
+                if (!messageInput.value.trim()) {
+                    showError(messageInput, 'Please enter your message');
+                    isValid = false;
+                } else if (messageInput.value.trim().length < 10) {
+                    showError(messageInput, 'Message must be at least 10 characters long');
+                    isValid = false;
+                } else {
+                    clearError(messageInput);
+                }
+                
+                if (!isValid) return;
+                
+                // Disable submit button
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Success
+                        formStatus.className = 'form-status success';
+                        formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+                        formStatus.style.display = 'block';
+                        form.reset();
+                        
+                        // Scroll to show success message
+                        setTimeout(() => {
+                            formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 100);
+                    } else {
+                        // Server-side validation error
+                        const data = await response.json();
+                        throw new Error(data.error || 'Failed to send message. Please try again.');
+                    }
+                } catch (error) {
+                    // Network or other errors
+                    console.error('Error:', error);
+                    formStatus.className = 'form-status error';
+                    formStatus.textContent = error.message || 'An error occurred. Please try again later.';
+                    formStatus.style.display = 'block';
+                } finally {
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                    
+                    // Hide success message after 5 seconds
+                    if (formStatus.className.includes('success')) {
+                        setTimeout(() => {
+                            formStatus.style.opacity = '1';
+                            let opacity = 1;
+                            const fadeOut = setInterval(() => {
+                                if (opacity <= 0.1) {
+                                    clearInterval(fadeOut);
+                                    formStatus.style.display = 'none';
+                                    formStatus.style.opacity = '1';
+                                }
+                                formStatus.style.opacity = opacity.toString();
+                                opacity -= 0.1;
+                            }, 50);
+                        }, 5000);
+                    }
+                }
+            }
+            
+            // Add event listeners
+            form.addEventListener('submit', handleSubmit);
+            
+            // Real-time validation
+            nameInput.addEventListener('input', () => {
+                if (nameInput.value.trim()) {
+                    clearError(nameInput);
+                }
+            });
+            
+            emailInput.addEventListener('input', () => {
+                if (emailInput.value.trim() && isValidEmail(emailInput.value.trim())) {
+                    clearError(emailInput);
+                }
+            });
+            
+            messageInput.addEventListener('input', () => {
+                if (messageInput.value.trim() && messageInput.value.trim().length >= 10) {
+                    clearError(messageInput);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

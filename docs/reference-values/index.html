@@ -179,26 +179,229 @@
     <!-- Header -->
     <header>
         <nav class="navbar">
-            <a href="/" class="logo">
-                <img src="/images/logo.png" alt="Longevity Coach Logo">
+            <a href="../" class="logo">
+                <img src="../images/logo.png" alt="Longevity Coach Logo">
                 Longevity Coach
             </a>
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/journey/">My Journey</a></li>
-                <li><a href="/reference-values/" class="active">Reference Values</a></li>
-                <li><a href="/#contact">Contact</a></li>
+                <li><a href="../">Home</a></li>
+                <li><a href="../journey/">My Journey</a></li>
+                <li><a href="./" class="active">Reference Values</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Main Content -->
     <main class="reference-content">
-        <h1>Reference Values</h1>
-    <p>Comprehensive reference values for health markers, based on the latest research and expert recommendations.</p>
-    
-    <div class="note">
-        <strong>Note:</strong> These reference values are for informational purposes only and should not replace professional medical advice. Always consult with a healthcare provider for interpretation of lab results.
+        <h1>Optimal Health Reference Values</h1>
+        <p class="subtitle">Based on expert recommendations for longevity and optimal health</p>
+        
+        <div class="alert alert-info">
+            <strong>Note:</strong> These are optimal ranges based on longevity research from Dr. Ulrich Strunz, Dr. med. Helena Orfanos-Boeckel, and Dr. Peter Osterhaus. They often differ from standard lab ranges.
+        </div>
+        
+        <div class="quick-nav mb-4">
+            <a href="#vital-nutrients" class="btn btn-sm btn-outline-primary me-2">Vital Nutrients</a>
+            <a href="#hormones" class="btn btn-sm btn-outline-primary me-2">Hormones</a>
+            <a href="#metabolic" class="btn btn-sm btn-outline-primary me-2">Metabolic</a>
+            <a href="#inflammation" class="btn btn-sm btn-outline-primary">Inflammation</a>
+        </div>
+        
+        <section id="vital-nutrients" class="mb-5">
+            <h2 class="border-bottom pb-2">Essential Nutrients</h2>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Nutrient</th>
+                            <th>Optimal Range</th>
+                            <th>Key Benefits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Vitamin D (25-OH)</strong></td>
+                            <td>50-70 ng/ml</td>
+                            <td>Immune function, bone health, gene expression</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vitamin B12 (Holo-TC)</strong></td>
+                            <td>>100 pmol/l</td>
+                            <td>Nerve function, DNA synthesis, energy</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Folate (RBC)</strong></td>
+                            <td>>16 ng/ml</td>
+                            <td>DNA synthesis, methylation, cell division</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zinc</strong></td>
+                            <td>6-7 mg/l</td>
+                            <td>Immune function, enzyme reactions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Magnesium (RBC)</strong></td>
+                            <td>0.85-1.0 mmol/l</td>
+                            <td>Muscle function, energy production, relaxation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Selenium</strong></td>
+                            <td>140-160 µg/l</td>
+                            <td>Antioxidant, thyroid function</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Omega-3 Index</strong></td>
+                            <td>>8%</td>
+                            <td>Heart health, brain function, inflammation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="hormones" class="mb-5">
+            <h2 class="border-bottom pb-2">Hormones</h2>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Hormone</th>
+                            <th>Women</th>
+                            <th>Men</th>
+                            <th>Key Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>TSH</strong></td>
+                            <td>0.5-2.5 mIU/l</td>
+                            <td>0.5-2.5 mIU/l</td>
+                            <td>Thyroid function</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Free T3</strong></td>
+                            <td>3.0-4.2 pg/ml</td>
+                            <td>3.0-4.2 pg/ml</td>
+                            <td>Active thyroid hormone</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DHEA-S</strong></td>
+                            <td>Upper third for age</td>
+                            <td>Upper third for age</td>
+                            <td>Youth hormone, energy</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Testosterone (free)</strong></td>
+                            <td>2-4 pg/ml</td>
+                            <td>Upper third for age</td>
+                            <td>Muscle, bone, libido</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Estradiol (E2)</strong></td>
+                            <td>30-100 pg/ml*</td>
+                            <td>20-30 pg/ml</td>
+                            <td>Bone, heart, brain health</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cortisol (AM)</strong></td>
+                            <td>16-18 µg/dl</td>
+                            <td>16-18 µg/dl</td>
+                            <td>Stress response</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <small class="text-muted">*Cycle-dependent in premenopausal women</small>
+            </div>
+        </section>
+        
+        <section id="metabolic" class="mb-5">
+            <h2 class="border-bottom pb-2">Metabolic Markers</h2>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Marker</th>
+                            <th>Optimal Range</th>
+                            <th>Significance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>HbA1c</strong></td>
+                            <td><5.0%</td>
+                            <td>Long-term blood sugar control</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fasting Glucose</strong></td>
+                            <td>75-85 mg/dl</td>
+                            <td>Blood sugar regulation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fasting Insulin</strong></td>
+                            <td><5 µIU/ml</td>
+                            <td>Insulin sensitivity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Triglycerides</strong></td>
+                            <td><100 mg/dl</td>
+                            <td>Heart health</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HDL Cholesterol</strong></td>
+                            <td>>60 mg/dl</td>
+                            <td>Heart protection</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="inflammation">
+            <h2 class="border-bottom pb-2">Inflammation & Aging</h2>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Marker</th>
+                            <th>Optimal Range</th>
+                            <th>Significance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>hs-CRP</strong></td>
+                            <td><1.0 mg/l</td>
+                            <td>Inflammation marker</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Homocysteine</strong></td>
+                            <td><7 µmol/l</td>
+                            <td>Methylation, heart health</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ferritin</strong></td>
+                            <td>70-200 ng/ml (W)<br>100-300 ng/ml (M)</td>
+                            <td>Iron stores (W=Women, M=Men)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vitamin C</strong></td>
+                            <td>10-20 mg/l</td>
+                            <td>Antioxidant, immune support</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vitamin E</strong></td>
+                            <td>16-25 mg/l</td>
+                            <td>Cell protection</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <div class="alert alert-warning mt-4">
+            <strong>Disclaimer:</strong> These values are for informational purposes only and should not replace professional medical advice. Always consult with a qualified healthcare provider for interpretation of your lab results and before making any changes to your health regimen.
+        </div>
     </div>
 
     <h2 class="section-header">General Health Markers</h2>
@@ -327,8 +530,8 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <a href="/" class="logo">
-                    <img src="/images/logo.png" alt="Longevity Coach Logo">
+                <a href="../" class="logo">
+                    <img src="../images/logo.png" alt="Longevity Coach Logo">
                     Longevity Coach
                 </a>
             </div>
@@ -336,15 +539,15 @@
                 Empowering you to optimize your health and longevity through data-driven insights and AI-powered coaching.
             </p>
             <div class="footer-links">
-                <a href="/">Home</a>
-                <a href="/journey/">My Journey</a>
-                <a href="/reference-values/">Reference Values</a>
-                <a href="/#contact">Contact</a>
+                <a href="../">Home</a>
+                <a href="../journey/">My Journey</a>
+                <a href="./">Reference Values</a>
+                <a href="../index.html#contact">Contact</a>
             </div>
             <div class="footer-links">
-                <a href="/privacy">Privacy Policy</a>
-                <a href="/terms">Terms of Service</a>
-                <a href="/cookies">Cookie Policy</a>
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../terms.html">Terms of Service</a>
+                <a href="../cookies.html">Cookie Policy</a>
             </div>
             <div class="copyright">
                 &copy; 2025 Longevity Coach. All rights reserved.

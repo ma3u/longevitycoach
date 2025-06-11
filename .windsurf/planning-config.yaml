@@ -1,0 +1,126 @@
+# Windsurf Planning Configuration
+# Version: 1.0.0
+# Last Updated: 2025-06-11
+
+planning:
+  # Planning cycle configuration
+  cycles:
+    strategic:
+      interval: quarterly
+      review_days_before: 14
+      artifacts:
+        - roadmap.md
+        - okrs.md
+        - resource-allocation.md
+    
+    release:
+      interval: monthly
+      review_days_before: 7
+      artifacts:
+        - release-plan.md
+        - risk-register.md
+        - dependency-map.md
+    
+    sprint:
+      interval: 2w
+      review_days_before: 2
+      artifacts:
+        - sprint-backlog.md
+        - sprint-goal.md
+        - capacity-plan.md
+    
+    daily:
+      interval: 1d
+      artifacts:
+        - standup-notes.md
+        - blocker-log.md
+
+  # Memory integration
+  memory:
+    update_frequency: 4h
+    max_context_items: 50
+    retention_policy: 90d
+    
+    # Memory categories and their update triggers
+    categories:
+      decisions:
+        path: memory-bank/decisions/
+        triggers:
+          - planning_cycle:strategic
+          - planning_cycle:release
+          - decision_made
+      
+      architecture:
+        path: memory-bank/architecture/
+        triggers:
+          - planning_cycle:strategic
+          - architecture_change
+      
+      metrics:
+        path: memory-bank/planning/metrics/
+        triggers:
+          - planning_cycle:sprint
+          - metrics_update
+      
+      knowledge:
+        path: memory-bank/domain-knowledge/
+        triggers:
+          - knowledge_update
+          - planning_cycle:strategic
+
+  # Automated planning actions
+  automation:
+    reminders:
+      enabled: true
+      lead_time: 1d
+      channels:
+        - email
+        - slack
+    
+    context_updates:
+      enabled: true
+      frequency: 4h
+      max_items: 20
+    
+    cleanup:
+      enabled: true
+      schedule: weekly
+      retention_period: 365d
+
+  # Integration settings
+  integrations:
+    github:
+      enabled: true
+      sync_issues: true
+      sync_prs: true
+      link_to_memory: true
+    
+    calendar:
+      enabled: true
+      sync_planning_events: true
+      default_reminder: 15m
+
+# Planning rules and constraints
+rules:
+  context_management:
+    max_active_items: 10
+    max_retained_items: 100
+    auto_archive_days: 30
+  
+  planning_constraints:
+    max_concurrent_initiatives: 5
+    min_review_cycle_hours: 24
+    max_planning_horizon: 90d
+
+# Monitoring and reporting
+monitoring:
+  metrics:
+    planning_accuracy:
+      enabled: true
+      target: >85%
+    context_retention:
+      enabled: true
+      target: >90%
+    update_compliance:
+      enabled: true
+      target: >95%
