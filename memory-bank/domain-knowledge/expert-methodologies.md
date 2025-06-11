@@ -1,3 +1,14 @@
+---
+title: "Expert Methodologies"
+description: "Domain-knowledge documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Expert Methodologies for Longevity Optimization
 
 ## Dr. Ulrich Strunz's Approach

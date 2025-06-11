@@ -1,3 +1,14 @@
+---
+title: "Hipaa Compliance"
+description: "Domain-knowledge > Regulations documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # HIPAA Compliance Protocol
 
 ## Administrative Safeguards

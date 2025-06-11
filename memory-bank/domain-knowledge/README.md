@@ -1,3 +1,14 @@
+---
+title: "Readme"
+description: "Domain-knowledge documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Healthcare Domain Knowledge
 
 This directory contains healthcare-specific domain knowledge and guidelines for the Longevity Coach platform.

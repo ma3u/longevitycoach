@@ -1,3 +1,14 @@
+---
+title: "Sdlc 001 Github Sprint Management"
+description: "Planning documentation"
+created: 2025-06-11
+updated: 2025-06-11
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Software Development Life Cycle: GitHub Sprint Management
 
 ## Overview

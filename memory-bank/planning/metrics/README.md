@@ -1,3 +1,14 @@
+---
+title: "Readme"
+description: "Planning > Metrics documentation"
+created: 2025-06-11
+updated: 2025-06-11
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Planning Metrics & KPIs
 
 ## Overview

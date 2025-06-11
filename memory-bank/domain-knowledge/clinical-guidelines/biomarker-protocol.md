@@ -1,3 +1,14 @@
+---
+title: "Biomarker Protocol"
+description: "Domain-knowledge > Clinical-guidelines documentation"
+created: 2025-06-02
+updated: 2025-06-02
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Biomarker Protocol: ${BIOMARKER_NAME}
 
 ## Overview

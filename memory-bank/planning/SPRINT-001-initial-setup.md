@@ -1,6 +1,17 @@
+---
+title: "Sprint 001 Initial Setup"
+description: "Planning documentation"
+created: 2025-06-11
+updated: 2025-06-11
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Sprint 1: Initial Setup & Foundation
 
-> **Development Process**: This sprint follows our [GitHub Sprint Management SDLC](./SDLC-001-github-sprint-management.md) for all development activities.
+> **Development Process**: This sprint follows our [GitHub Sprint Management SDLC](./sdlc-001-github-sprint-management.md) for all development activities.
 
 ## Sprint Details
 - **Duration:** 2 weeks (2025-06-12 to 2025-06-25)

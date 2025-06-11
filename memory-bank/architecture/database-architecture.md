@@ -1,42 +1,221 @@
+---
+title: "Database Architecture"
+description: "Comprehensive documentation of the Longevity Coach database architecture"
+created: 2025-06-02
+updated: 2025-06-11
+authors: 
+  - name: Longevity Coach Team
+    email: dev@longevitycoach.app
+status: active
+related: 
+  - /architecture/api-architecture.md
+tags: 
+  - database
+  - postgresql
+  - timescaledb
+  - architecture
+---
+
 # Database Architecture
 
+## Table of Contents
+- [Technology Stack](#technology-stack)
+- [Schema Design](#schema-design)
+- [Performance Considerations](#performance-considerations)
+- [Backup & Recovery](#backup--recovery)
+- [Security](#security)
+- [Monitoring](#monitoring)
+- [Migrations](#migrations)
+- [Best Practices](#best-practices)
+
 ## Technology Stack
-- **Primary Database**: Supabase (PostgreSQL 14+)
-- **Time-series Extension**: TimescaleDB
-- **Search**: PostgreSQL Full-Text Search with pg_trgm
-- **Version**: PostgreSQL 14+
+
+### Primary Database
+- **Database**: PostgreSQL 14+ (via Supabase)
+- **Purpose**: Transactional and analytical workloads
+- **Extensions**:
+  - `timescaledb`: Time-series data handling
+  - `pg_trgm`: Advanced text search
+  - `pgcrypto`: Encryption functions
+  - `uuid-ossp`: UUID generation
+  - `postgis`: Geospatial data support
+
+### Time-series Data
+- **Extension**: TimescaleDB
+- **Partitioning**: Time-based and patient-based partitioning
+- **Retention Policy**: 10 years for patient data, configurable per data type
+
+### Search Capabilities
+- PostgreSQL Full-Text Search with `pg_trgm`
+- Vector similarity search for recommendations
+- Custom ranking functions for relevance
 
 ## Schema Design
 
 ### Core Tables
 
 #### `patients`
-- `id` UUID (Primary Key)
-- `created_at` TIMESTAMPTZ
-- `updated_at` TIMESTAMPTZ
-- `external_id` TEXT (for HIPAA compliance)
-- `demographics` JSONB
-- `consents` JSONB (GDPR compliance)
-- `settings` JSONB
+Stores patient demographic and consent information.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| id | UUID | Primary key |
+| created_at | TIMESTAMPTZ | Record creation timestamp |
+| updated_at | TIMESTAMPTZ | Last update timestamp |
+| external_id | TEXT | External reference ID (HIPAA compliant) |
+| demographics | JSONB | Patient demographics (name, DOB, etc.) |
+| consents | JSONB | Consent management (GDPR compliance) |
+| settings | JSONB | User preferences and settings |
+
+**Indexes**:
+- Primary key on `id`
+- Unique index on `external_id`
+- GIN index on `demographics`
 
 #### `blood_tests`
-- `id` UUID (Primary Key)
-- `patient_id` UUID (Foreign Key)
-- `tested_at` TIMESTAMPTZ
-- `laboratory_id` UUID
-- `report_url` TEXT
-- `status` ENUM('pending', 'processed', 'analyzed')
-- `metadata` JSONB
+Tracks blood test orders and results.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| id | UUID | Primary key |
+| patient_id | UUID | Reference to patients.id |
+| tested_at | TIMESTAMPTZ | When the test was performed |
+| laboratory_id | UUID | Reference to laboratories table |
+| report_url | TEXT | Link to full report |
+| status | ENUM | Test status (pending/processed/analyzed) |
+| metadata | JSONB | Additional test metadata |
+
+**Indexes**:
+- Primary key on `id`
+- Foreign key index on `patient_id`
+| Index on `tested_at` for time-based queries |
+| GIN index on `metadata` |
 
 #### `biomarkers` (Timescale Hypertable)
-- `id` UUID (Primary Key)
-- `blood_test_id` UUID (Foreign Key)
-- `patient_id` UUID (Foreign Key, Partition Key)
-- `loinc_code` TEXT
-- `value` NUMERIC
-- `unit` TEXT
-- `reference_range` JSONB
-- `timestamp` TIMESTAMPTZ (Time Partitioning)
+Stores time-series biomarker data with efficient time-based queries.
+
+| Column | Type | Description |
+|--------|------|-------------|
+| id | UUID | Primary key |
+| blood_test_id | UUID | Reference to blood_tests.id |
+| patient_id | UUID | Reference to patients.id (Partition Key) |
+| loinc_code | TEXT | LOINC code for the biomarker |
+| value | NUMERIC | Measured value |
+| unit | TEXT | Measurement unit |
+| reference_range | JSONB | Normal range values |
+| timestamp | TIMESTAMPTZ | Time of measurement (Time Partitioning) |
+
+**Indexes**:
+- Primary key on `id`
+| Composite index on `(patient_id, loinc_code, timestamp DESC)` |
+| Time-based index on `timestamp` |
+| Foreign key indexes on `patient_id` and `blood_test_id` |
+
+### Supporting Tables
+
+#### `laboratories`
+Information about testing laboratories.
+
+#### `reference_ranges`
+Standard reference ranges for biomarkers.
+
+#### `audit_logs`
+Audit trail for all data modifications.
+
+## Performance Considerations
+
+### Indexing Strategy
+- **B-tree** for equality and range queries
+- **GIN** for JSONB columns and full-text search
+- **BRIN** for large time-series data
+- **Partial indexes** for filtered queries
+
+### Query Optimization
+- Materialized views for common aggregations
+- Query plan analysis for slow queries
+- Connection pooling for better resource utilization
+
+### Partitioning
+- Time-based partitioning for time-series data
+- List partitioning by patient_id for data isolation
+- Automated partition management with retention policies
+
+## Backup & Recovery
+
+### Backup Strategy
+- **Daily full backups** with PITR (Point-in-Time Recovery)
+- **WAL archiving** for continuous backup
+- **Off-site storage** with encryption
+
+### Recovery Objectives
+- **RPO (Recovery Point Objective)**: 5 minutes
+- **RTO (Recovery Time Objective)**: 15 minutes
+
+## Security
+
+### Data Encryption
+- **At rest**: AES-256 encryption
+- **In transit**: TLS 1.3
+- **Field-level encryption** for sensitive data
+
+### Access Control
+- Row-level security (RLS) policies
+- Role-based access control (RBAC)
+- Principle of least privilege
+
+### Audit Trail
+- All data modifications logged
+- Sensitive operations require MFA
+- Regular security reviews
+
+## Monitoring
+
+### Metrics Collection
+- Query performance
+- Resource utilization
+- Replication lag
+
+### Alerting
+- Performance degradation
+- Failed queries
+- Security events
+
+## Migrations
+
+### Version Control
+- All schema changes in migration files
+- Backward compatibility maintained
+- Zero-downtime deployments
+
+### Tools
+- Flyway for migration management
+- Schema diff tools for review
+- Automated testing of migrations
+
+## Best Practices
+
+### Naming Conventions
+- snake_case for tables and columns
+- Prefixes for related tables (e.g., `auth_users`)
+- Consistent naming across foreign keys
+
+### Data Types
+- Appropriate data types for all columns
+- Domain types for validation
+- Enums for fixed value sets
+
+### Documentation
+- Column-level comments
+- Schema documentation in source control
+- Data dictionary
+
+## Related Documents
+- [API Architecture](../api-architecture.md)
+- [Deployment Guide](../../deployment/guide.md)
+- [Security Policy](../../security/policy.md)
+
+---
+Last Updated: June 11, 2025
 - `tags` TEXT[]
 
 ### Performance Optimizations

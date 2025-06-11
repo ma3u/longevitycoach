@@ -1,3 +1,14 @@
+---
+title: "Plan 001 Windsurf Planning Rules"
+description: "Planning documentation"
+created: 2025-06-11
+updated: 2025-06-11
+authors: 
+status: draft
+related: []
+tags: 
+---
+
 # Windsurf Planning Rules
 
 ## Overview
