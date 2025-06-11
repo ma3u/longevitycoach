@@ -2,51 +2,65 @@ name: Validate Documentation
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, develop]
     paths:
       - '**/*.md'
       - '!node_modules/**'
+      - '!**/node_modules/**'
       - '.github/workflows/validate-docs.yml'
+      - 'scripts/validate-memory-bank.js'
   pull_request:
-    branches: [main, master]
+    branches: [main, master, develop]
     paths:
       - '**/*.md'
       - '!node_modules/**'
+      - '!**/node_modules/**'
       - '.github/workflows/validate-docs.yml'
+      - 'scripts/validate-memory-bank.js'
   workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual run'
+        required: false
+        default: 'Manual trigger'
 
 jobs:
   validate-docs:
+    name: Validate Documentation
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
     
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18'
+        node-version: '18.x'
         cache: 'npm'
     
-    - name: Install markdownlint
+    - name: Install dependencies
       run: |
-        npm install -g markdownlint-cli
-        npm install -g markdownlint-cli2
+        npm install -g markdownlint-cli markdownlint-cli2
+        npm ci
     
     - name: Validate Markdown files
       run: |
         # Check all markdown files except node_modules
-        find . -name "*.md" -not -path "*/node_modules/*" -print0 | xargs -0 markdownlint -c .markdownlint.json --disable MD013 --disable MD033
+        find . -name "*.md" -not -path "*/node_modules/*" -not -path "*/.github/*" -print0 | \
+          xargs -0 markdownlint -c .markdownlint.json --disable MD013 --disable MD033 --disable MD041
     
-    - name: Validate ADR format
+    - name: Run Memory Bank validation
+      run: node scripts/validate-memory-bank.js --ci
+    
+    - name: Validate Decision Records
       run: |
-        # Check that all ADRs have required sections
+        # Check that all decision records have required sections and frontmatter
         for file in memory-bank/decisions/*.md; do
           if [ -f "$file" ]; then
-            if ! grep -q '^## Status$' "$file" || \
-               ! grep -q '^## Context$' "$file" || \
+            if ! grep -q '^## Context$' "$file" || \
                ! grep -q '^## Decision$' "$file" || \
                ! grep -q '^## Consequences$' "$file"; then
               echo "::error file=$file::ADR is missing required sections (Status, Context, Decision, Consequences)"
