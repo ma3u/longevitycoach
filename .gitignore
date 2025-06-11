@@ -64,3 +64,6 @@ yarn-error.log*
 *.bak
 *.backup
 *~
+
+# Temporary test files
+_blood-tests-temp/
