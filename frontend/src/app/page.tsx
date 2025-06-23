@@ -98,7 +98,7 @@ export default function Home() {
                   </div>
                   <div className="ml-16">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">{feature.name}</h3>
-                    <p className="mt-2 text-base text-gray-500">{feature.description}</p>
+                    <p className="mt-2 text-base text-gray-600">{feature.description}</p>
                   </div>
                 </div>
               ))}

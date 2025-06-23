@@ -9,25 +9,25 @@ planning:
       interval: quarterly
       review_days_before: 14
       artifacts:
-        - roadmap.md
-        - okrs.md
-        - resource-allocation.md
+        - memory-bank/roadmap.md
+        - memory-bank/okrs.md
+        - memory-bank/resource-allocation.md
     
     release:
       interval: monthly
       review_days_before: 7
       artifacts:
-        - release-plan.md
-        - risk-register.md
-        - dependency-map.md
+        - memory-bank/release-plan.md
+        - memory-bank/risk-register.md
+        - memory-bank/dependency-map.md
     
     sprint:
       interval: 2w
       review_days_before: 2
       artifacts:
-        - sprint-backlog.md
-        - sprint-goal.md
-        - capacity-plan.md
+        - memory-bank/sprint-backlog.md
+        - memory-bank/sprint-goal.md
+        - memory-bank/capacity-plan.md
     
     daily:
       interval: 1d

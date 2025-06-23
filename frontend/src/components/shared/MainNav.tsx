@@ -20,6 +20,10 @@ const navItems = [
     name: 'Analytics',
     href: '/analytics',
   },
+  {
+    name: 'Journey',
+    href: '/journey',
+  },
 ];
 
 export function MainNav() {

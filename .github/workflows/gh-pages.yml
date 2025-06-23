@@ -71,12 +71,14 @@ jobs:
         uses: actions/configure-pages@v4
         
       # Upload the static site as an artifact
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          # Upload everything in the docs directory
-          path: 'docs/.'
-          # Keep artifacts for 1 day
+          folder: docs
+          commit-message: "Deploy: Update site with timestamp ${{ env.BUILD_DATE }}"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          build-script: |
+            echo "BUILD_DATE=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
           retention-days: 1
           
       # Set deployment environment URL for the next step

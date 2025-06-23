@@ -1,13 +1,20 @@
 ---
-title: "Sprint 001 Initial Setup"
-description: "Planning documentation"
+title: "Sprint 001: Initial Setup & Foundation"
+description: "Sprint planning documentation for initial setup phase"
 created: 2025-06-11
-updated: 2025-06-11
+updated: 2025-06-20
 authors: 
-status: draft
-related: []
-tags: 
+status: active
+related: 
+  - "Milestone: Sprint 1: Initial Setup & Foundation (#1)"
+tags:
+  - sprint-1
+  - planning
+  - milestone
 ---
+
+> **GitHub Milestone**: [Sprint 1: Initial Setup & Foundation (#1)](https://github.com/longevitycoach/longevitycoach/milestone/1)
+> **Project Board**: [Longvitity Website - Iteration 1](https://github.com/orgs/longevitycoach/projects/1/views/1?filterQuery=iteration%3A%22Iteration+1%22)
 
 # Sprint 1: Initial Setup & Foundation
 

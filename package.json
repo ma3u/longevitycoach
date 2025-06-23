@@ -11,6 +11,8 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "@types/node": "^24.0.3",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.0"
   },

@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
 
 // Check if we're building for GitHub Pages
 const isGithubPages = process.env.NODE_ENV === 'production';
@@ -8,7 +9,7 @@ const basePath = isGithubPages ? `/${repoName}` : '';
 
 const nextConfig = {
   // Base path for GitHub Pages
-  basePath,
+  basePath: basePath,
   // Asset prefix for static assets
   assetPrefix: basePath,
   
@@ -20,16 +21,18 @@ const nextConfig = {
   // Enable static export
   output: 'export',
   
-  // Disable server-side rendering features
+  // Enable React Strict Mode
   reactStrictMode: true,
+  
+  // Enable SWC minification
   swcMinify: true,
   
   // Webpack configuration
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer: _isServer }) => {
     // Add path aliases to webpack
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': require('path').resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src'),
     };
 
     // Important: return the modified config
@@ -39,9 +42,9 @@ const nextConfig = {
 
 // Log the configuration for debugging
 console.log('Next.js Config:', {
-  basePath,
+  basePath: nextConfig.basePath,
   isGithubPages,
-  nodeEnv: process.env.NODE_ENV,
+  nodeEnv: process.env.NODE_ENV
 });
 
 module.exports = nextConfig;
