@@ -51,11 +51,11 @@ jobs:
         run: |
           cd frontend
           npm ci
-          npm run build
-          mkdir -p ../docs
-          cp -R out/* ../docs/
+          npm run build:static
+          ls -la ../docs
         env:
           NEXT_TELEMETRY_DISABLED: 1
+          NODE_ENV: production
       
       # Verify docs directory has content
       - name: Verify docs directory
