@@ -71,10 +71,15 @@ jobs:
 
             return missingChecks.length === 0;
 
-      - name: Check for WIP commits
-        uses: mikebarkmin/action-wip@v1
+      - name: Check for WIP in PR title
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const title = context.payload.pull_request?.title || '';
+            if (title.match(/\bWIP\b|\bwip\b|\bDNM\b|\bdnm\b|\bdo not merge\b/i)) {
+              core.setFailed('PR title contains WIP/DNM marker. Please remove it before merging.');
+            }
 
       - name: Check for large files
         uses: gitleaks/gitleaks-action@v2
@@ -86,14 +91,16 @@ jobs:
         with:
           configFile: .commitlintrc.json
 
-      - name: Check branch naming
-        if: github.event_name == 'pull_request' || github.event_name == 'push'
-        uses: deepakputhraya/action-pr-title@v1
-        with:
-          regex: '^(feat|fix|docs|style|refactor|test|chore)\([a-z0-9-]+\): .{1,72}$'
-          regexFlags: ''
-          validation_type: 'regex'
-          github_token: ${{ github.token }}
+      - name: Validate PR title
+        if: github.event_name == 'pull_request'
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Configure semantic PR validation
+          VALIDATE_SINGLE_COMMIT: 'true'
+          TYPES: 'feat,fix,docs,style,refactor,test,chore'
+          REQUIRE_SCOPE: 'true'
+          MAX_TITLE_LENGTH: '72'
 
       - name: Comment on PR with next steps
         if: github.event_name == 'pull_request'
