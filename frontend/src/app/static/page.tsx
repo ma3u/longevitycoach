@@ -1,6 +1,8 @@
+'use client';
+
 import { Dialog, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Dialog as RadixDialog } from '@radix-ui/react-dialog';
+import * as RadixDialog from '@radix-ui/react-dialog';
 import { Activity, HeartPulse, Shield } from 'lucide-react';
 import Link from 'next/link';
 import { Fragment, useState } from 'react';
@@ -139,37 +141,49 @@ export default function StaticPage() {
           <div className="flex flex-1 justify-between px-4">
             <div className="flex flex-1"></div>
             <div className="ml-4 flex items-center lg:ml-6">
-              <RadixDialog>
+              <RadixDialog.Root open={isOpen} onOpenChange={setIsOpen}>
                 <RadixDialog.Trigger asChild>
-                  <button className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Get Started
+                  <button
+                    type="button"
+                    className="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  >
+                    Open Radix Dialog
                   </button>
                 </RadixDialog.Trigger>
                 <RadixDialog.Portal>
-                  <RadixDialog.Overlay className="fixed inset-0 bg-black/50" />
-                  <RadixDialog.Content className="fixed left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 transform rounded-lg bg-white p-6 shadow-xl">
-                    <RadixDialog.Title className="text-lg font-semibold text-gray-900">
-                      Welcome to Longevity Coach
+                  <RadixDialog.Overlay className="fixed inset-0 bg-black/30" />
+                  <RadixDialog.Content className="fixed left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white p-6 shadow-xl">
+                    <RadixDialog.Title className="text-lg font-medium text-gray-900">
+                      Radix Dialog
                     </RadixDialog.Title>
                     <RadixDialog.Description className="mt-2 text-sm text-gray-500">
-                      Start your journey to better health today.
+                      This is a Radix UI dialog component.
                     </RadixDialog.Description>
                     <div className="mt-4">
-                      <Link
-                        href="/signup"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-                      >
-                        Sign Up
-                      </Link>
                       <RadixDialog.Close asChild>
-                        <button className="ml-2 inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
-                          Maybe Later
+                        <button
+                          type="button"
+                          className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        >
+                          Close
                         </button>
                       </RadixDialog.Close>
                     </div>
                   </RadixDialog.Content>
                 </RadixDialog.Portal>
-              </RadixDialog>
+              </RadixDialog.Root>
+              <Link
+                href="/signup"
+                className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+              >
+                Sign Up
+              </Link>
+              <button
+                type="button"
+                className="ml-2 inline-flex justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+              >
+                Maybe Later
+              </button>
             </div>
           </div>
         </div>
